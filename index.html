@@ -57,31 +57,9 @@
                 Sari3-AI: الحل الجزائري الأول لإدارة المواعيد، الرد الذكي بالدارجة، والتسجيل الفوري في المنصات المزدحمة.
             </p>
             <div class="flex flex-col md:flex-row gap-4 justify-center pt-8">
-                <a href="#turbo" class="bg-[#ccff00]/10 border border-[#ccff00]/20 text-[#ccff00] px-10 py-5 rounded-3xl hover:bg-[#ccff00]/20 transition text-lg font-bold text-center">اكتشف S3 Turbo ⚡</a>
+                <a href="#turbo" class="bg-[#ccff00]/10 border border-[#ccff00]/20 text-[#ccff00] px-10 py-5 rounded-3xl hover:bg-[#ccff00]/20 transition text-lg font-bold">اكتشف S3 Turbo ⚡</a>
                 <a href="#booking" class="glow-btn px-10 py-5 rounded-3xl text-lg">طلب استشارة مجانية</a>
             </div>
-        </div>
-    </section>
-
-    <section id="features" class="py-24 px-6 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-right">
-        <div class="tech-card p-10 rounded-[40px]">
-            <i data-lucide="bot" class="text-[#ccff00] w-12 h-12 mb-6"></i>
-            <h3 class="text-2xl font-bold mb-4">الرد الآلي الذكي</h3>
-            <p class="text-gray-500 text-sm">وكلاء أذكياء يفهمون "الدارجة" الجزائرية للرد على الزبائن وحجز مواعيدهم عبر واتساب 24/7.</p>
-        </div>
-        <div id="turbo" class="tech-card p-10 rounded-[40px] border-[#ccff00]/30 turbo-shimmer">
-            <div class="flex justify-between items-start mb-6">
-                <i data-lucide="zap" class="text-[#ccff00] w-12 h-12"></i>
-                <span class="bg-[#ccff00] text-black text-[10px] font-black px-3 py-1 rounded-full uppercase">Exclusive</span>
-            </div>
-            <h3 class="text-2xl font-bold mb-4 italic text-[#ccff00]">Sari3 Turbo</h3>
-            <p class="text-gray-300 text-sm font-bold mb-4">التسجيل الفوري في المنصات (عدل، منحة، الحج..)</p>
-            <p class="text-gray-500 text-xs">نظام أتمتة يملأ بياناتك في 0.5 ثانية لضمان مكانك قبل سقوط السيرفر.</p>
-        </div>
-        <div class="tech-card p-10 rounded-[40px]">
-            <i data-lucide="mouse-pointer-click" class="text-blue-500 w-12 h-12 mb-6"></i>
-            <h3 class="text-2xl font-bold mb-4 italic text-white">Sari3 On-Demand</h3>
-            <p class="text-gray-500 text-sm">خدمة الدفع بالعملية للأفراد. تسجيل سريع لمرة واحدة دون الحاجة لاشتراك شهري كامل.</p>
         </div>
     </section>
 
@@ -109,75 +87,54 @@
                 <h2 class="text-3xl font-black tech-font text-white">ADMIN <span class="text-[#ccff00]">DASHBOARD</span></h2>
                 <button onclick="toggleAdmin()" class="text-gray-500 hover:text-white"><i data-lucide="x-circle" class="w-8 h-8"></i></button>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                <div class="glass p-6 rounded-3xl">
-                    <p class="text-gray-500 text-xs uppercase mb-2">إجمالي الطلبات</p>
-                    <p class="text-4xl font-black text-[#ccff00]">1</p>
-                </div>
             </div>
-            <div id="leadsList" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="glass p-6 rounded-2xl border-r-4 border-[#ccff00]">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h4 class="font-bold text-xl text-white">زبون تجريبي (نور)</h4>
-                            <p class="text-gray-400 text-sm">Sari3 Turbo</p>
-                        </div>
-                        <span class="bg-[#ccff00]/10 text-[#ccff00] text-[10px] px-2 py-1 rounded">نشط</span>
-                    </div>
-                    <button onclick="window.open('https://wa.me/213791809715')" class="mt-4 text-[#ccff00] text-sm font-bold underline">اتصال واتساب مباشر</button>
-                </div>
-            </div>
-        </div>
     </div>
-
-    <footer class="py-20 text-center border-t border-white/5 text-gray-700">
-        <p class="tech-font text-xl mb-4 text-white">SARI3-AI</p>
-        <p class="text-[10px] uppercase tracking-widest">© 2026 جميع الحقوق محفوظة - الجزائر</p>
-    </footer>
 
     <script>
         lucide.createIcons();
 
-        // نظام اللغة
+        // تفعيل نظام اللغات
         function setLanguage(lang) {
             const title = document.getElementById('hero-title');
             const desc = document.getElementById('hero-desc');
             if(lang === 'fr') {
                 document.body.dir = 'ltr';
                 title.innerHTML = "Automation Smart.. <br> <span class='text-[#ccff00] italic'>Vitesse Record</span>";
-                desc.innerText = "Sari3-AI: La première solution Algérienne pour la gestion intelligente et l'inscription instantanée.";
+                desc.innerText = "Sari3-AI: La première solution Algérienne pour la gestion intelligente.";
             } else {
                 document.body.dir = 'rtl';
                 title.innerHTML = "أتمتة ذكية.. <br> <span class='text-[#ccff00] italic'>سرعة قياسية</span>";
-                desc.innerText = "Sari3-AI: الحل الجزائري الأول لإدارة المواعيد، الرد الذكي بالدارجة، والتسجيل الفوري في المنصات المزدحمة.";
+                desc.innerText = "Sari3-AI: الحل الجزائري الأول لإدارة المواعيد، الرد الذكي بالدارجة.";
             }
         }
 
-        // نظام الإدارة
+        // تفعيل لوحة الإدارة (كلمة السر 1234)
         function toggleAdmin() {
-            const pass = prompt("كلمة مرور لوحة التحكم:");
+            const pass = prompt("كلمة مرور الإدارة:");
             if(pass === "1234") {
                 document.getElementById('adminPanel').classList.toggle('hidden');
-            } else if (pass !== null) {
-                alert("خطأ في كلمة المرور!");
-            }
+            } else if (pass !== null) { alert("كلمة المرور خاطئة!"); }
         }
 
-        // إرسال الطلب للواتساب
-        document.getElementById('leadForm').onsubmit = function(e) {
-            e.preventDefault();
+        // الـ Script السحري الذي يقوم بالتحويل التلقائي للواتساب
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // منع الصفحة من الانتعاش
             
+            // جلب البيانات من المربعات
             const name = document.getElementById('cust-name').value;
             const phone = document.getElementById('cust-phone').value;
             const service = document.getElementById('cust-service').value;
             
-            const myNumber = "213791809715";
-            const message = `طلب جديد من Sari3-AI:%0A%0A👤 الاسم: ${name}%0A📞 الهاتف: ${phone}%0A🛠 الخدمة: ${service}`;
+            const myNumber = "213791809715"; // رقمك الخاص
             
-            alert("سيتم توجيهك الآن إلى واتساب الإدارة لتأكيد طلبك.");
+            // تجهيز الرسالة
+            const message = `مرحباً Sari3-AI، لدي طلب جديد:%0A%0A👤 الاسم: ${name}%0A📞 الهاتف: ${phone}%0A🛠 الخدمة: ${service}`;
+            
+            // فتح واتساب تلقائياً
             window.open(`https://wa.me/${myNumber}?text=${message}`, '_blank');
-            this.reset();
-        }
+            
+            this.reset(); // مسح البيانات بعد الإرسال
+        });
     </script>
 </body>
 </html>
