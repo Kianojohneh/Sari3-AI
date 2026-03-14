@@ -18,10 +18,6 @@
         .tech-card:hover { border-color: var(--lime); transform: translateY(-10px); }
         .glow-btn { background: var(--lime); color: black; font-weight: 800; transition: 0.3s; box-shadow: 0 0 20px rgba(204, 255, 0, 0.2); }
         .glow-btn:hover { box-shadow: 0 0 40px rgba(204, 255, 0, 0.5); transform: scale(1.05); }
-        .turbo-shimmer { background: linear-gradient(90deg, transparent, rgba(204, 255, 0, 0.1), transparent); background-size: 200% 100%; animation: shimmer 2s infinite; }
-        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
-        .lang-switch { border: 1px solid rgba(255,255,255,0.1); padding: 4px 12px; border-radius: 999px; font-size: 12px; cursor: pointer; transition: 0.3s; }
-        .lang-switch:hover { border-color: var(--lime); color: var(--lime); }
     </style>
 </head>
 <body>
@@ -31,122 +27,53 @@
             <div class="w-10 h-10 bg-[#ccff00] rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(204,255,0,0.3)]">
                 <span class="tech-font text-black">S3</span>
             </div>
-            <span class="tech-font text-2xl tracking-tighter uppercase hidden md:block">SARI3-<span class="text-[#ccff00]">AI</span></span>
+            <span class="tech-font text-2xl tracking-tighter uppercase">SARI3-<span class="text-[#ccff00]">AI</span></span>
         </div>
-        <div class="flex items-center gap-4">
-            <div class="flex gap-1">
-                <button onclick="setLanguage('ar')" class="lang-switch text-[#ccff00]">عربي</button>
-                <button onclick="setLanguage('fr')" class="lang-switch">FR</button>
-            </div>
-            <button onclick="toggleAdmin()" class="text-gray-500 hover:text-white transition p-2"><i data-lucide="layout-dashboard" class="w-5 h-5"></i></button>
-            <a href="#booking" class="glow-btn px-6 py-2 rounded-full text-xs md:text-sm">ابدأ الآن</a>
-        </div>
+        <a href="#booking" class="glow-btn px-6 py-2 rounded-full text-xs md:text-sm">ابدأ الآن</a>
     </nav>
 
-    <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 relative overflow-hidden pt-20">
-        <div class="absolute w-[600px] h-[600px] bg-[#ccff00]/5 blur-[120px] rounded-full -top-48 -right-48 animate-pulse"></div>
-        <div class="space-y-6 z-10">
-            <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] uppercase tracking-widest text-[#ccff00]">
-                <span class="w-2 h-2 bg-[#ccff00] rounded-full animate-ping"></span>
-                قوة الذكاء الاصطناعي في خدمة مؤسستك
-            </div>
-            <h1 id="hero-title" class="text-5xl md:text-8xl font-black leading-[1.1] tracking-tighter">
-                أتمتة ذكية.. <br> <span class="text-[#ccff00] italic">سرعة قياسية</span>
-            </h1>
-            <p id="hero-desc" class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto font-medium">
-                Sari3-AI: الحل الجزائري الأول لإدارة المواعيد، الرد الذكي بالدارجة، والتسجيل الفوري في المنصات المزدحمة.
-            </p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center pt-8">
-                <a href="#turbo" class="bg-[#ccff00]/10 border border-[#ccff00]/20 text-[#ccff00] px-10 py-5 rounded-3xl hover:bg-[#ccff00]/20 transition text-lg font-bold">اكتشف S3 Turbo ⚡</a>
-                <a href="#booking" class="glow-btn px-10 py-5 rounded-3xl text-lg">طلب استشارة مجانية</a>
-            </div>
-        </div>
+    <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 relative pt-20">
+        <h1 class="text-5xl md:text-8xl font-black leading-[1.1] tracking-tighter mb-6">
+            أتمتة ذكية.. <br> <span class="text-[#ccff00] italic">سرعة قياسية</span>
+        </h1>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-10">
+            الحل الجزائري الأول لإدارة المواعيد والتسجيل الفوري في المنصات المزدحمة.
+        </p>
+        <a href="#booking" class="glow-btn px-10 py-5 rounded-3xl text-lg">طلب استشارة مجانية</a>
     </section>
 
-    <section id="features" class="py-24 px-6 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-right">
-        <div class="tech-card p-10 rounded-[40px]">
-            <i data-lucide="bot" class="text-[#ccff00] w-12 h-12 mb-6"></i>
-            <h3 class="text-2xl font-bold mb-4">الرد الآلي الذكي</h3>
-            <p class="text-gray-500 text-sm">وكلاء أذكياء يفهمون "الدارجة" الجزائرية للرد على الزبائن وحجز مواعيدهم عبر واتساب 24/7.</p>
-        </div>
-        <div id="turbo" class="tech-card p-10 rounded-[40px] border-[#ccff00]/30 turbo-shimmer">
-            <div class="flex justify-between items-start mb-6">
-                <i data-lucide="zap" class="text-[#ccff00] w-12 h-12"></i>
-                <span class="bg-[#ccff00] text-black text-[10px] font-black px-3 py-1 rounded-full uppercase">Exclusive</span>
-            </div>
-            <h3 class="text-2xl font-bold mb-4 italic text-[#ccff00]">Sari3 Turbo</h3>
-            <p class="text-gray-300 text-sm font-bold mb-4">التسجيل الفوري في المنصات (عدل، منحة، الحج..)</p>
-            <p class="text-gray-500 text-xs">نظام أتمتة يملأ بياناتك في 0.5 ثانية لضمان مكانك قبل سقوط السيرفر.</p>
-        </div>
-        <div class="tech-card p-10 rounded-[40px]">
-            <i data-lucide="mouse-pointer-click" class="text-blue-500 w-12 h-12 mb-6"></i>
-            <h3 class="text-2xl font-bold mb-4 italic text-white">Sari3 On-Demand</h3>
-            <p class="text-gray-500 text-sm">خدمة الدفع بالعملية للأفراد. تسجيل سريع لمرة واحدة دون الحاجة لاشتراك شهري كامل.</p>
-        </div>
-    </section>
-
-    <section id="booking" class="py-32 px-6 bg-[#080808]">
-        <div class="max-w-4xl mx-auto glass p-10 rounded-[60px] border-white/5">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-black mb-4 italic text-white">انضم إلى <span class="text-[#ccff00]">النخبة</span></h2>
-                <p class="text-gray-500">سجل اهتمامك وسنتصل بك لتجهيز نظامك الخاص.</p>
-            </div>
-            <form id="leadForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <section id="booking" class="py-32 px-6">
+        <div class="max-w-4xl mx-auto glass p-10 rounded-[40px]">
+            <h2 class="text-4xl font-black mb-8 text-center italic">انضم إلى <span class="text-[#ccff00]">النخبة</span></h2>
+            <form id="leadForm" class="grid grid-cols-1 gap-6">
                 <input type="text" id="cust-name" required class="bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-[#ccff00]" placeholder="الاسم الكامل / المؤسسة">
-                <input type="tel" id="cust-phone" required class="bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-[#ccff00]" placeholder="رقم الهاتف (واتساب)">
-                <select id="cust-service" class="md:col-span-2 bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-[#ccff00] text-gray-400">
+                <input type="tel" id="cust-phone" required class="bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-[#ccff00]" placeholder="رقم الهاتف">
+                <select id="cust-service" class="bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-[#ccff00] text-gray-400">
                     <option class="bg-black">اشتراك مؤسسة (AI Agent + Turbo)</option>
                     <option class="bg-black">خدمة On-Demand (تسجيل لمرة واحدة)</option>
                 </select>
-                <button type="submit" class="md:col-span-2 glow-btn py-5 rounded-3xl text-xl mt-4">إرسال الطلب</button>
+                <button type="submit" class="glow-btn py-5 rounded-3xl text-xl mt-4">إرسال الطلب عبر واتساب</button>
             </form>
         </div>
     </section>
 
-    <div id="adminPanel" class="fixed inset-0 z-[200] hidden bg-black p-4 md:p-12 overflow-y-auto" dir="rtl">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex justify-between items-center mb-12 border-b border-white/10 pb-6">
-                <h2 class="text-3xl font-black tech-font text-white">ADMIN <span class="text-[#ccff00]">DASHBOARD</span></h2>
-                <button onclick="toggleAdmin()" class="text-gray-500 hover:text-white"><i data-lucide="x-circle" class="w-8 h-8"></i></button>
-            </div>
-            <div id="leadsList" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="glass p-6 rounded-2xl border-r-4 border-[#ccff00]">
-                    <h4 class="font-bold text-xl text-white">زبون تجريبي</h4>
-                    <p class="text-gray-400 text-sm">Sari3 Turbo</p>
-                    <button class="mt-4 text-[#ccff00] text-sm font-bold underline">اتصال واتساب</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer class="py-20 text-center border-t border-white/5 text-gray-700">
-        <p class="tech-font text-xl mb-4 text-white">SARI3-AI</p>
-        <p class="text-[10px] uppercase tracking-widest">© 2026 جميع الحقوق محفوظة - الجزائر</p>
-    </footer>
-
     <script>
         lucide.createIcons();
-        function setLanguage(lang) {
-            const title = document.getElementById('hero-title');
-            const desc = document.getElementById('hero-desc');
-            if(lang === 'fr') {
-                document.body.dir = 'ltr';
-                title.innerHTML = "Automation Smart.. <br> <span class='text-[#ccff00] italic'>Vitesse Record</span>";
-                desc.innerText = "Sari3-AI: La première solution Algérienne pour la gestion intelligente et l'inscription instantanée.";
-            } else {
-                document.body.dir = 'rtl';
-                title.innerHTML = "أتمتة ذكية.. <br> <span class='text-[#ccff00] italic'>سرعة قياسية</span>";
-                desc.innerText = "Sari3-AI: الحل الجزائري الأول لإدارة المواعيد، الرد الذكي بالدارجة، والتسجيل الفوري في المنصات المزدحمة.";
-            }
-            lucide.createIcons();
-        }
-        function toggleAdmin() {
-            document.getElementById('adminPanel').classList.toggle('hidden');
-        }
+
         document.getElementById('leadForm').onsubmit = function(e) {
             e.preventDefault();
-            alert("تم إرسال طلبك بنجاح لنظام S3! سنتصل بك عبر واتساب.");
-            this.reset();
+            
+            const name = document.getElementById('cust-name').value;
+            const phone = document.getElementById('cust-phone').value;
+            const service = document.getElementById('cust-service').value;
+            
+            // رقم هاتفك الذي زودتني به
+            const myWhatsApp = "213791809715"; 
+            
+            const message = `مرحباً Sari3-AI، لدي طلب جديد:%0A%0A👤 الاسم: ${name}%0A📞 الهاتف: ${phone}%0A🛠 الخدمة: ${service}`;
+            
+            alert("سيتم نقلك الآن إلى واتساب لإرسال بياناتك للإدارة...");
+            window.open(`https://wa.me/${myWhatsApp}?text=${message}`, '_blank');
         }
     </script>
 </body>
