@@ -6,7 +6,6 @@
     <title>Sari3-AI | الأتمتة والسرعة الفائقة</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Orbitron:wght@700&display=swap" rel="stylesheet">
     
     <style>
@@ -14,10 +13,10 @@
         body { background-color: var(--dark); color: white; font-family: 'Cairo', sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
         .tech-font { font-family: 'Orbitron', sans-serif; }
         .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .tech-card { background: #0a0a0a; border: 1px solid rgba(255,255,255,0.05); transition: 0.4s; position: relative; overflow: hidden; }
-        .tech-card:hover { border-color: var(--lime); transform: translateY(-10px); }
-        .glow-btn { background: var(--lime); color: black; font-weight: 800; transition: 0.3s; box-shadow: 0 0 20px rgba(204, 255, 0, 0.2); }
+        .glow-btn { background: var(--lime); color: black; font-weight: 800; transition: 0.3s; box-shadow: 0 0 20px rgba(204, 255, 0, 0.2); text-align: center; }
         .glow-btn:hover { box-shadow: 0 0 40px rgba(204, 255, 0, 0.5); transform: scale(1.05); }
+        .input-style { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 15px; padding: 15px; width: 100%; outline: none; transition: 0.3s; }
+        .input-style:focus { border-color: var(--lime); shadow: 0 0 10px rgba(204,255,0,0.1); }
     </style>
 </head>
 <body>
@@ -27,54 +26,63 @@
             <div class="w-10 h-10 bg-[#ccff00] rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(204,255,0,0.3)]">
                 <span class="tech-font text-black">S3</span>
             </div>
-            <span class="tech-font text-2xl tracking-tighter uppercase">SARI3-<span class="text-[#ccff00]">AI</span></span>
+            <span class="tech-font text-xl md:text-2xl tracking-tighter uppercase">SARI3-<span class="text-[#ccff00]">AI</span></span>
         </div>
-        <a href="#booking" class="glow-btn px-6 py-2 rounded-full text-xs md:text-sm">ابدأ الآن</a>
+        
+        <div class="flex items-center gap-4">
+            <div class="flex gap-2 text-[10px] md:text-xs">
+                <button class="px-2 py-1 rounded bg-white/10">عربي</button>
+                <button class="px-2 py-1 rounded opacity-50">FR</button>
+            </div>
+            <a href="#booking" class="glow-btn px-4 py-2 rounded-full text-xs">ابدأ الآن</a>
+        </div>
     </nav>
 
-    <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 relative pt-20">
-        <h1 class="text-5xl md:text-8xl font-black leading-[1.1] tracking-tighter mb-6">
+    <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-20">
+        <h1 class="text-4xl md:text-7xl font-black leading-tight mb-6">
             أتمتة ذكية.. <br> <span class="text-[#ccff00] italic">سرعة قياسية</span>
         </h1>
-        <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-10">
-            الحل الجزائري الأول لإدارة المواعيد والتسجيل الفوري في المنصات المزدحمة.
+        <p class="text-gray-400 text-sm md:text-lg max-w-2xl mx-auto mb-10">
+            الحل الجزائري الأول لإدارة المواعيد والتسجيل الفوري في المنصات المزدحمة. بالذكاء الاصطناعي.
         </p>
-        <a href="#booking" class="glow-btn px-10 py-5 rounded-3xl text-lg">طلب استشارة مجانية</a>
+        <a href="#booking" class="glow-btn px-8 py-4 rounded-2xl text-lg">طلب استشارة مجانية</a>
     </section>
 
-    <section id="booking" class="py-32 px-6">
-        <div class="max-w-4xl mx-auto glass p-10 rounded-[40px]">
-            <h2 class="text-4xl font-black mb-8 text-center italic">انضم إلى <span class="text-[#ccff00]">النخبة</span></h2>
-            <form id="leadForm" class="grid grid-cols-1 gap-6">
-                <input type="text" id="cust-name" required class="bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-[#ccff00]" placeholder="الاسم الكامل / المؤسسة">
-                <input type="tel" id="cust-phone" required class="bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-[#ccff00]" placeholder="رقم الهاتف">
-                <select id="cust-service" class="bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-[#ccff00] text-gray-400">
-                    <option class="bg-black">اشتراك مؤسسة (AI Agent + Turbo)</option>
-                    <option class="bg-black">خدمة On-Demand (تسجيل لمرة واحدة)</option>
+    <section id="booking" class="py-20 px-6">
+        <div class="max-w-xl mx-auto glass p-8 rounded-[30px] border-t-2 border-[#ccff00]">
+            <h2 class="text-3xl font-black mb-8 text-center">انضم إلى <span class="text-[#ccff00]">النخبة</span></h2>
+            <form id="whatsappForm" class="flex flex-col gap-5">
+                <input type="text" id="name" required class="input-style" placeholder="الاسم الكامل / المؤسسة">
+                <input type="tel" id="phone" required class="input-style" placeholder="رقم الهاتف">
+                <select id="service" class="input-style text-gray-400">
+                    <option value="AI Agent">اشتراك مؤسسة (AI Agent)</option>
+                    <option value="On-Demand">خدمة On-Demand (تسجيل فوري)</option>
                 </select>
-                <button type="submit" class="glow-btn py-5 rounded-3xl text-xl mt-4">إرسال الطلب عبر واتساب</button>
+                <button type="submit" class="glow-btn py-4 rounded-2xl text-lg mt-2">إرسال الطلب عبر واتساب</button>
             </form>
         </div>
     </section>
 
-    <script>
-        lucide.createIcons();
+    <footer class="p-10 text-center text-gray-600 text-xs tech-font">
+        &copy; 2026 SARI3-AI ALGERIA. ALL RIGHTS RESERVED.
+    </footer>
 
-        document.getElementById('leadForm').onsubmit = function(e) {
+    <script>
+        document.getElementById('whatsappForm').onsubmit = function(e) {
             e.preventDefault();
             
-            const name = document.getElementById('cust-name').value;
-            const phone = document.getElementById('cust-phone').value;
-            const service = document.getElementById('cust-service').value;
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
             
-            // رقم هاتفك الذي زودتني به
-            const myWhatsApp = "213791809715"; 
+            // رقمك الشخصي جاهز
+            const myNumber = "213791809715";
             
             const message = `مرحباً Sari3-AI، لدي طلب جديد:%0A%0A👤 الاسم: ${name}%0A📞 الهاتف: ${phone}%0A🛠 الخدمة: ${service}`;
             
-            alert("سيتم نقلك الآن إلى واتساب لإرسال بياناتك للإدارة...");
-            window.open(`https://wa.me/${myWhatsApp}?text=${message}`, '_blank');
-        }
+            // فتح واتساب
+            window.open(`https://wa.me/${myNumber}?text=${message}`, '_blank');
+        };
     </script>
 </body>
 </html>
