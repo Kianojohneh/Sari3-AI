@@ -2,74 +2,65 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sari3-AI S3 Pro Multi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SARI3-AI S3 PRO</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #0b0b0b; color: white; font-family: 'Cairo', sans-serif; }
-        .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(15px); border-radius: 25px; border: 1px solid rgba(255, 255, 255, 0.1); }
-        .input-premium { background: rgba(0, 0, 0, 0.3); border: 1px solid #ccff0033; padding: 15px; border-radius: 15px; width: 100%; outline: none; color: #ccff00; text-align: center; }
-        .btn-main { background: linear-gradient(90deg, #ccff00, #9fcc00); color: black; font-weight: 900; transition: 0.3s; }
-        .service-btn { background: rgba(255, 255, 255, 0.08); border-right: 4px solid #ccff00; padding: 15px; border-radius: 12px; width: 100%; text-align: right; font-weight: bold; transition: 0.2s; display: flex; align-items: center; gap: 10px; }
-        .service-btn:active { background: #ccff00; color: black; }
+        body { background: #080808; color: white; font-family: 'Cairo', sans-serif; }
+        .input-box { background: #151515; border: 1px solid #222; padding: 15px; border-radius: 12px; width: 100%; color: #ccff00; margin-bottom: 12px; outline: none; transition: 0.3s; }
+        .input-box:focus { border-color: #ccff00; box-shadow: 0 0 10px rgba(204, 255, 0, 0.1); }
+        .btn-gold { background: linear-gradient(90deg, #ccff00, #9fcc00); color: black; font-weight: 900; padding: 18px; border-radius: 15px; width: 100%; cursor: pointer; }
+        .btn-wa { background: #25d366; color: white; padding: 12px; border-radius: 12px; width: 100%; display: block; text-align: center; text-decoration: none; margin-top: 15px; font-weight: bold; }
+        .safety-tag { background: rgba(0, 150, 255, 0.1); border: 1px solid rgba(0, 150, 255, 0.2); padding: 10px; border-radius: 10px; font-size: 11px; color: #87CEEB; }
     </style>
 </head>
-<body class="p-4">
-
-    <div id="main-logic">
-        <div id="login-screen" class="max-w-md mx-auto">
-            <div class="text-center mb-6">
-                <h1 class="text-3xl font-black italic">SARI3-AI <span class="text-[#ccff00]">S3</span></h1>
-                <p class="text-gray-400 text-sm">نظام الحقن التلقائي الموحد v2.0</p>
-            </div>
-
-            <div class="glass-card p-6 space-y-4">
-                <input type="text" id="user-name" class="input-premium" placeholder="الاسم الكامل (باللاتينية)">
-                <input type="tel" id="user-phone" class="input-premium" placeholder="رقم الهاتف">
-                <input type="text" id="license-key" class="input-premium" placeholder="كود التفعيل">
-                <button onclick="activateSystem()" class="w-full btn-main py-4 rounded-xl shadow-lg shadow-[#ccff0022]">تفعيل المحرك الشامل</button>
-            </div>
+<body class="p-6">
+    <div id="setup-screen" class="max-w-md mx-auto">
+        <div class="text-center mb-6">
+            <h1 class="text-3xl font-black italic">SARI3-AI <span class="text-[#ccff00]">S3</span></h1>
+            <p class="text-gray-500 text-sm">نظام السرعة القصوى للحقن التلقائي</p>
         </div>
 
-        <div id="services-screen" class="hidden max-w-md mx-auto space-y-3">
-            <div class="text-center mb-4">
-                <h2 class="text-[#ccff00] font-black text-xl">لوحة التحكم PRO ⚡</h2>
-                <p class="text-xs text-gray-500">اختر الموقع وسيتم ملء بياناتك تلقائياً</p>
-            </div>
+        <div class="safety-tag mb-6">
+            🛡️ نظام التشفير المحلي نشط: بياناتك تُحفظ في ذاكرة هاتفك فقط ولا تخرج أبداً. نحن لا نملك قاعدة بيانات خارجية.
+        </div>
+
+        <div class="space-y-2">
+            <label class="text-xs text-gray-400 mr-2">بيانات أساسية (تُملأ تلقائياً)</label>
+            <input type="text" id="u-name" class="input-box" placeholder="الاسم واللقب (باللاتينية)">
+            <input type="tel" id="u-phone" class="input-box" placeholder="رقم الهاتف">
             
-            <button onclick="goTo('https://minha.anem.dz')" class="service-btn">💵 منحة البطالة (ANEM)</button>
-            <button onclick="goTo('https://aadl3inscription2024.dz')" class="service-btn">🏢 سكنات عدل 3 (AADL)</button>
-            <button onclick="goTo('https://visas-fr.tlscontact.com')" class="service-btn">🎫 مواعيد الفيزا (TLScontact)</button>
-            <button onclick="goTo('https://eccp.poste.dz')" class="service-btn">✉️ بريد الجزائر (الذهبية)</button>
-            <button onclick="goTo('https://bawaba.elhadj.dz')" class="service-btn">🕋 قرعة الحج (الديوان الوطني)</button>
-            <button onclick="goTo('https://tharwa.education.gov.dz')" class="service-btn">🏫 أولياء التلاميذ (Tharwa)</button>
-            <button onclick="goTo('https://progres.mesrs.dz/webetu/')" class="service-btn">🎓 منحة الجامعيين (Progress)</button>
-            <button onclick="goTo('https://elhanaa.cnas.dz')" class="service-btn">🏥 الضمان الاجتماعي (CNAS)</button>
-            <button onclick="goTo('https://wasitonline.anem.dz')" class="service-btn">💼 عروض العمل (وسيط)</button>
-            <button onclick="goTo('https://www.sntf.dz')" class="service-btn">🚆 حجز قطار (SNTF)</button>
+            <label class="text-xs text-gray-400 mr-2">بيانات إضافية (اختياري - لزيادة السرعة)</label>
+            <input type="password" id="u-nin" class="input-box" placeholder="رقم التعريف الوطني (NIN)">
         </div>
+
+        <input type="text" id="license-key" class="input-box border-[#ccff0044] mt-4" placeholder="أدخل كود التفعيل">
+        
+        <button onclick="activate()" class="btn-gold shadow-lg shadow-[#ccff0022]">تفعيل النظام والدخول ⚡</button>
+        
+        <a href="https://wa.me/213791809715?text=أريد شراء كود تفعيل SARI3-AI" class="btn-wa">طلب كود التفعيل عبر واتساب</a>
+    </div>
+
+    <div id="services-screen" class="hidden max-w-md mx-auto space-y-3">
+        <h2 class="text-[#ccff00] font-black text-center mb-4">لوحة الخدمات PRO</h2>
+        <button onclick="location.href='https://minha.anem.dz'" class="input-box text-right">💵 منحة البطالة</button>
+        <button onclick="location.href='https://aadl3inscription2024.dz'" class="input-box text-right">🏢 سكنات عدل 3</button>
+        <button onclick="location.href='https://visas-fr.tlscontact.com'" class="input-box text-right">🎫 مواعيد الفيزا</button>
+        <button onclick="location.href='https://eccp.poste.dz'" class="input-box text-right">✉️ بريد الجزائر</button>
     </div>
 
     <script>
-        function activateSystem() {
-            const key = document.getElementById('license-key').value;
-            const name = document.getElementById('user-name').value;
-            const phone = document.getElementById('user-phone').value;
-
-            if(key.trim().toUpperCase() === "S3-PRO-2026") {
-                localStorage.setItem('s3_name', name);
-                localStorage.setItem('s3_phone', phone);
-
-                document.getElementById('login-screen').classList.add('hidden');
+        function activate() {
+            const key = document.getElementById('license-key').value.trim();
+            if(key === "S3-PRO-2026") {
+                localStorage.setItem('s3_name', document.getElementById('u-name').value);
+                localStorage.setItem('s3_phone', document.getElementById('u-phone').value);
+                localStorage.setItem('s3_nin', document.getElementById('u-nin').value);
+                
+                document.getElementById('setup-screen').classList.add('hidden');
                 document.getElementById('services-screen').classList.remove('hidden');
-            } else {
-                alert("كود التفعيل غير صحيح!");
-            }
-        }
-
-        function goTo(url) {
-            window.location.href = url;
+            } else { alert("كود التفعيل خاطئ!"); }
         }
     </script>
 </body>
