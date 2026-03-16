@@ -3,79 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sari3-AI | Mobile App</title>
+    <title>Sari3-AI Speed</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #050505; color: white; font-family: 'Cairo', sans-serif; transition: all 0.3s ease; }
-        .app-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.05); border-radius: 35px; }
-        .input-field { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 18px; border-radius: 20px; width: 100%; outline: none; color: #ccff00; font-weight: bold; text-align: inherit; }
-        .btn-primary { background: #ccff00; color: black; font-weight: 900; box-shadow: 0 10px 30px rgba(204, 255, 0, 0.2); }
-        .lang-btn { border: 1px solid #ccff00; color: #ccff00; padding: 5px 15px; border-radius: 10px; font-size: 12px; font-weight: bold; }
+        body { 
+            background: radial-gradient(circle at top, #1a1a1a 0%, #050505 100%); 
+            color: white; 
+            font-family: 'Cairo', sans-serif; 
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.03); 
+            backdrop-filter: blur(15px); 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            border-radius: 40px; 
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        .neon-border {
+            position: relative;
+        }
+        .neon-border::after {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, #ccff00, transparent, #ccff00);
+            border-radius: 42px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        .input-premium { 
+            background: rgba(255, 255, 255, 0.05); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            padding: 20px; 
+            border-radius: 22px; 
+            width: 100%; 
+            outline: none; 
+            color: #ccff00; 
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .input-premium:focus {
+            border-color: #ccff00;
+            background: rgba(204, 255, 0, 0.05);
+        }
+        .btn-ultra { 
+            background: #ccff00; 
+            color: black; 
+            font-weight: 900; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 15px 35px rgba(204, 255, 0, 0.3);
+            transition: 0.3s;
+        }
+        .btn-ultra:active { transform: scale(0.96); }
+        .lang-badge {
+            background: rgba(204, 255, 0, 0.1);
+            color: #ccff00;
+            border: 1px solid #ccff00;
+            padding: 6px 18px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 800;
+        }
     </style>
 </head>
-<body class="flex flex-col items-center p-6 pt-8">
+<body class="p-8">
 
-    <div class="w-full max-w-sm flex justify-between items-center mb-8">
-        <button onclick="toggleLang()" id="langSwitcher" class="lang-btn">Français</button>
-        <div class="text-[10px] text-gray-500 font-bold uppercase tracking-widest">v3.0 Stable</div>
+    <div class="w-full max-w-sm flex justify-between items-center mb-12">
+        <button onclick="toggleLang()" id="langSwitcher" class="lang-badge">FRANÇAIS</button>
+        <span class="text-[10px] text-gray-500 font-bold tracking-[0.2em]">V3.0 PREMIUM</span>
     </div>
 
-    <div class="mb-8 text-center">
-        <div class="inline-block p-4 bg-[#ccff00] rounded-2xl shadow-[0_0_20px_#ccff00] mb-4">
-            <span class="text-black text-3xl font-black italic">S3</span>
+    <div class="mb-12 text-center">
+        <div class="inline-block p-5 bg-[#ccff00] rounded-[28px] shadow-[0_0_40px_rgba(204,255,0,0.4)] mb-6">
+            <span class="text-black text-4xl font-black italic tracking-tighter">S3</span>
         </div>
-        <h1 id="appTitle" class="text-2xl font-black tracking-tighter uppercase italic">Sari3-AI <span class="text-[#ccff00]">Mobile</span></h1>
+        <h1 id="appTitle" class="text-3xl font-black tracking-tighter uppercase italic">Sari3-AI <span class="text-[#ccff00]">Speed</span></h1>
     </div>
 
-    <div id="app-container" class="app-card p-8 w-full max-w-sm space-y-6">
-        <div class="text-center">
-            <h2 id="subtitle" class="text-lg font-bold">برمج محركك ⚡</h2>
-            <p id="desc" class="text-[10px] text-gray-500">أدخل البيانات التي سيقوم التطبيق بحقنها تلقائياً</p>
+    <div id="app-container" class="glass-card neon-border p-10 w-full max-w-sm space-y-8">
+        <div class="text-center space-y-2">
+            <h2 id="subtitle" class="text-xl font-black text-white">برمج محركك ⚡</h2>
+            <p id="desc" class="text-xs text-gray-500 leading-relaxed">أدخل بياناتك لتفعيل الحقن التلقائي الذكي</p>
         </div>
 
-        <div class="space-y-4">
-            <input type="text" id="user-name" class="input-field" placeholder="الاسم الكامل">
-            <input type="tel" id="user-phone" class="input-field" placeholder="رقم الهاتف">
-            <button id="mainBtn" onclick="saveData()" class="w-full btn-primary py-5 rounded-2xl text-lg active:scale-95 transition-all">تفعيل المحرك الذكي</button>
+        <div class="space-y-5">
+            <input type="text" id="user-name" class="input-premium" placeholder="الاسم الكامل">
+            <input type="tel" id="user-phone" class="input-premium" placeholder="رقم الهاتف">
+            <button id="mainBtn" onclick="saveData()" class="w-full btn-ultra py-6 rounded-2xl text-lg mt-4">تفعيل المحرك الذكي</button>
         </div>
     </div>
 
     <script>
         let currentLang = 'ar';
-
         const translations = {
             ar: {
-                title: 'Sari3-AI <span class="text-[#ccff00]">Mobile</span>',
+                title: 'Sari3-AI <span class="text-[#ccff00]">Speed</span>',
                 subtitle: 'برمج محركك ⚡',
-                desc: 'أدخل البيانات التي سيقوم التطبيق بحقنها تلقائياً',
+                desc: 'أدخل بياناتك لتفعيل الحقن التلقائي الذكي',
                 namePlh: 'الاسم الكامل',
                 phonePlh: 'رقم الهاتف',
                 btn: 'تفعيل المحرك الذكي',
-                langBtn: 'Français',
-                success: 'تم تفعيل المحرك!',
-                successDesc: 'الآن عند فتح موقع التسجيل، سيعمل التطبيق تلقائياً.',
-                error: 'أدخل بياناتك أولاً!'
+                langBtn: 'FRANÇAIS',
+                success: 'المحرك نشط ⚡',
+                successDesc: 'نظام S3 Pro متصل الآن بمواقع الحجز التلقائي'
             },
             fr: {
-                title: 'Sari3-AI <span class="text-[#ccff00]">Expert</span>',
-                subtitle: 'Programmez votre moteur ⚡',
-                desc: 'Entrez les données que l\'application injectera automatiquement',
+                title: 'Sari3-AI <span class="text-[#ccff00]">Speed</span>',
+                subtitle: 'Engine Setup ⚡',
+                desc: 'Activez l\'injection automatique des données',
                 namePlh: 'Nom complet',
                 phonePlh: 'Numéro de téléphone',
-                btn: 'Activer le moteur AI',
+                btn: 'ACTIVER LE MOTEUR',
                 langBtn: 'العربية',
-                success: 'Moteur Activé !',
-                successDesc: 'Maintenant, l\'application remplira les formulaires automatiquement.',
-                error: 'Veuillez remplir les champs !'
+                success: 'ENGINE ACTIVE ⚡',
+                successDesc: 'Le système S3 Pro est prêt pour l\'auto-remplissage'
             }
         };
 
         function toggleLang() {
             currentLang = currentLang === 'ar' ? 'fr' : 'ar';
             document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-            document.documentElement.lang = currentLang;
-            
             const t = translations[currentLang];
             document.getElementById('appTitle').innerHTML = t.title;
             document.getElementById('subtitle').innerText = t.subtitle;
@@ -87,21 +140,13 @@
         }
 
         function saveData() {
-            const name = document.getElementById('user-name').value;
-            const phone = document.getElementById('user-phone').value;
             const t = translations[currentLang];
-
-            if(!name || !phone) { alert(t.error); return; }
-
-            localStorage.setItem('s3_name', name);
-            localStorage.setItem('s3_phone', phone);
-
             document.getElementById('app-container').innerHTML = `
-                <div class="text-center space-y-6 py-6 animate-pulse">
-                    <div class="text-5xl text-[#ccff00]">⚡</div>
-                    <h2 class="text-[#ccff00] font-black text-xl">${t.success}</h2>
-                    <p class="text-gray-400 text-xs px-4 leading-relaxed">${t.successDesc}</p>
-                    <button onclick="window.location.reload()" class="text-gray-600 text-[10px] underline uppercase tracking-widest">Reset Data</button>
+                <div class="text-center space-y-8 py-10 animate-pulse">
+                    <div class="text-6xl text-[#ccff00]">⚡</div>
+                    <h2 class="text-[#ccff00] font-black text-2xl uppercase">${t.success}</h2>
+                    <p class="text-gray-400 text-sm leading-relaxed">${t.successDesc}</p>
+                    <button onclick="window.location.reload()" class="text-gray-600 text-[10px] underline uppercase tracking-[0.3em]">Reset Engine</button>
                 </div>
             `;
         }
