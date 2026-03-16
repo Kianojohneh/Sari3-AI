@@ -3,99 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sari3-AI Speed</title>
+    <title>Sari3 Speed - Setup</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { 
-            background: radial-gradient(circle at top, #1a1a1a 0%, #050505 100%); 
-            color: white; 
-            font-family: 'Cairo', sans-serif; 
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow-x: hidden;
-        }
-        .glass-card { 
-            background: rgba(255, 255, 255, 0.03); 
-            backdrop-filter: blur(15px); 
-            border: 1px solid rgba(255, 255, 255, 0.08); 
-            border-radius: 40px; 
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-        .neon-border {
-            position: relative;
-        }
-        .neon-border::after {
-            content: '';
-            position: absolute;
-            top: -2px; left: -2px; right: -2px; bottom: -2px;
-            background: linear-gradient(45deg, #ccff00, transparent, #ccff00);
-            border-radius: 42px;
-            z-index: -1;
-            opacity: 0.3;
-        }
-        .input-premium { 
-            background: rgba(255, 255, 255, 0.05); 
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            padding: 20px; 
-            border-radius: 22px; 
-            width: 100%; 
-            outline: none; 
-            color: #ccff00; 
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        .input-premium:focus {
-            border-color: #ccff00;
-            background: rgba(204, 255, 0, 0.05);
-        }
-        .btn-ultra { 
-            background: #ccff00; 
-            color: black; 
-            font-weight: 900; 
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 15px 35px rgba(204, 255, 0, 0.3);
-            transition: 0.3s;
-        }
-        .btn-ultra:active { transform: scale(0.96); }
-        .lang-badge {
-            background: rgba(204, 255, 0, 0.1);
-            color: #ccff00;
-            border: 1px solid #ccff00;
-            padding: 6px 18px;
-            border-radius: 100px;
-            font-size: 13px;
-            font-weight: 800;
-        }
+        body { background-color: #000000; color: white; font-family: 'Cairo', sans-serif; overflow-x: hidden; }
+        .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.08); }
+        .input-premium { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); padding: 22px; border-radius: 20px; width: 100%; outline: none; color: #ccff00; font-size: 16px; font-weight: bold; }
+        .input-premium::placeholder { color: #555; }
+        .btn-premium { background: linear-gradient(180deg, #ffd700, #ff8c00); color: black; font-weight: 900; font-size: 18px; box-shadow: 0 10px 30px rgba(255, 165, 0, 0.3); transition: transform 0.2s ease; }
+        .btn-premium:active { transform: scale(0.97); }
+        .lang-badge { border: 1px solid #ccff00; color: #ccff00; padding: 4px 12px; border-radius: 8px; font-size: 12px; font-weight: bold; }
     </style>
 </head>
-<body class="p-8">
+<body class="p-6">
 
-    <div class="w-full max-w-sm flex justify-between items-center mb-12">
-        <button onclick="toggleLang()" id="langSwitcher" class="lang-badge">FRANÇAIS</button>
-        <span class="text-[10px] text-gray-500 font-bold tracking-[0.2em]">V3.0 PREMIUM</span>
+    <div class="w-full max-w-sm flex justify-between items-center mb-10 mx-auto">
+        <button onclick="toggleLang()" id="langSwitcher" class="lang-badge">Français</button>
+        <div class="text-[10px] text-gray-500 font-bold uppercase tracking-widest">S3 v3.0 Premium</div>
     </div>
 
-    <div class="mb-12 text-center">
-        <div class="inline-block p-5 bg-[#ccff00] rounded-[28px] shadow-[0_0_40px_rgba(204,255,0,0.4)] mb-6">
-            <span class="text-black text-4xl font-black italic tracking-tighter">S3</span>
+    <div class="w-full max-w-sm mx-auto flex flex-col items-center mb-10">
+        <div class="w-full flex justify-center items-center gap-2 mb-6">
+            <h1 class="text-white text-3xl font-black italic tracking-tighter uppercase">Sari3-AI</h1>
+            <div class="p-3 bg-[#ccff00] rounded-2xl shadow-[0_0_15px_rgba(204,255,0,0.5)]">
+                <span class="text-black text-3xl font-black italic tracking-tighter">S3</span>
+            </div>
         </div>
-        <h1 id="appTitle" class="text-3xl font-black tracking-tighter uppercase italic">Sari3-AI <span class="text-[#ccff00]">Speed</span></h1>
+        <div class="text-center">
+            <span class="text-[#ccff00] text-xl font-bold uppercase tracking-widest block mb-1">أتمتة ذكية..</span>
+            <span class="text-white text-5xl font-extrabold uppercase italic tracking-tighter">SARI3 SPEED</span>
+        </div>
     </div>
 
-    <div id="app-container" class="glass-card neon-border p-10 w-full max-w-sm space-y-8">
-        <div class="text-center space-y-2">
-            <h2 id="subtitle" class="text-xl font-black text-white">برمج محركك ⚡</h2>
-            <p id="desc" class="text-xs text-gray-500 leading-relaxed">أدخل بياناتك لتفعيل الحقن التلقائي الذكي</p>
+    <div id="app-container" class="glass-card p-10 w-full max-w-sm mx-auto space-y-6">
+        <div class="text-center text-gray-400 text-sm mb-6">
+            <p id="desc">أدخل بياناتك لبرمجة محرك الأتمتة الخاص بك</p>
         </div>
 
-        <div class="space-y-5">
+        <div class="space-y-4">
             <input type="text" id="user-name" class="input-premium" placeholder="الاسم الكامل">
             <input type="tel" id="user-phone" class="input-premium" placeholder="رقم الهاتف">
-            <button id="mainBtn" onclick="saveData()" class="w-full btn-ultra py-6 rounded-2xl text-lg mt-4">تفعيل المحرك الذكي</button>
+            <button id="mainBtn" onclick="saveData()" class="w-full btn-premium py-6 rounded-3xl text-xl mt-4 flex items-center justify-center gap-2">
+                <span class="text-lg">💎</span> <span id="btnText">ترقية للبريميوم</span>
+            </button>
         </div>
     </div>
 
@@ -103,26 +54,22 @@
         let currentLang = 'ar';
         const translations = {
             ar: {
-                title: 'Sari3-AI <span class="text-[#ccff00]">Speed</span>',
-                subtitle: 'برمج محركك ⚡',
-                desc: 'أدخل بياناتك لتفعيل الحقن التلقائي الذكي',
+                desc: 'أدخل بياناتك لبرمجة محرك الأتمتة الخاص بك',
                 namePlh: 'الاسم الكامل',
                 phonePlh: 'رقم الهاتف',
-                btn: 'تفعيل المحرك الذكي',
-                langBtn: 'FRANÇAIS',
+                btn: 'ترقية للبريميوم',
+                langBtn: 'Français',
                 success: 'المحرك نشط ⚡',
-                successDesc: 'نظام S3 Pro متصل الآن بمواقع الحجز التلقائي'
+                successDesc: 'تم حفظ البيانات بنجاح في نظام S3.'
             },
             fr: {
-                title: 'Sari3-AI <span class="text-[#ccff00]">Speed</span>',
-                subtitle: 'Engine Setup ⚡',
-                desc: 'Activez l\'injection automatique des données',
+                desc: 'Entrez vos données pour programmer votre moteur',
                 namePlh: 'Nom complet',
                 phonePlh: 'Numéro de téléphone',
-                btn: 'ACTIVER LE MOTEUR',
+                btn: 'PASSER AU PREMIUM',
                 langBtn: 'العربية',
-                success: 'ENGINE ACTIVE ⚡',
-                successDesc: 'Le système S3 Pro est prêt pour l\'auto-remplissage'
+                success: 'MOTEUR ACTIF ⚡',
+                successDesc: 'Les données sont sauvegardées avec succès.'
             }
         };
 
@@ -130,23 +77,21 @@
             currentLang = currentLang === 'ar' ? 'fr' : 'ar';
             document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
             const t = translations[currentLang];
-            document.getElementById('appTitle').innerHTML = t.title;
-            document.getElementById('subtitle').innerText = t.subtitle;
             document.getElementById('desc').innerText = t.desc;
             document.getElementById('user-name').placeholder = t.namePlh;
             document.getElementById('user-phone').placeholder = t.phonePlh;
-            document.getElementById('mainBtn').innerText = t.btn;
+            document.getElementById('btnText').innerText = t.btn;
             document.getElementById('langSwitcher').innerText = t.langBtn;
         }
 
         function saveData() {
             const t = translations[currentLang];
             document.getElementById('app-container').innerHTML = `
-                <div class="text-center space-y-8 py-10 animate-pulse">
-                    <div class="text-6xl text-[#ccff00]">⚡</div>
-                    <h2 class="text-[#ccff00] font-black text-2xl uppercase">${t.success}</h2>
-                    <p class="text-gray-400 text-sm leading-relaxed">${t.successDesc}</p>
-                    <button onclick="window.location.reload()" class="text-gray-600 text-[10px] underline uppercase tracking-[0.3em]">Reset Engine</button>
+                <div class="text-center space-y-6 py-8 animate-pulse">
+                    <div class="text-5xl text-[#ccff00]">⚡</div>
+                    <h2 class="text-[#ccff00] font-black text-xl uppercase">${t.success}</h2>
+                    <p class="text-gray-400 text-xs px-2 leading-relaxed">${t.successDesc}</p>
+                    <button onclick="window.location.reload()" class="text-gray-600 text-[10px] underline uppercase tracking-widest">Reset</button>
                 </div>
             `;
         }
