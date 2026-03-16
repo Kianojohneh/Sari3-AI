@@ -3,125 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sari3-AI Speed - Premium</title>
+    <title>Sari3-AI Speed</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #000000; color: white; font-family: 'Cairo', sans-serif; overflow-x: hidden; }
+        body { background-color: #000000; color: white; font-family: 'Cairo', sans-serif; }
         .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.08); }
-        .input-premium { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); padding: 22px; border-radius: 20px; width: 100%; outline: none; color: #ccff00; font-size: 16px; font-weight: bold; text-align: center; transition: 0.3s; }
-        .input-premium:focus { border-color: #ccff00; background: rgba(204, 255, 0, 0.05); }
-        .btn-premium { background: linear-gradient(180deg, #ffd700, #ff8c00); color: black; font-weight: 900; font-size: 18px; box-shadow: 0 10px 30px rgba(255, 165, 0, 0.3); transition: 0.3s; cursor: pointer; border: none; }
-        .btn-premium:active { transform: scale(0.97); }
-        .btn-whatsapp { background-color: #25D366; color: black; font-weight: 900; transition: 0.3s; cursor: pointer; border: none; width: 100%; }
-        .btn-whatsapp:hover { background-color: #128C7E; }
-        .lang-badge { border: 1px solid #ccff00; color: #ccff00; padding: 4px 12px; border-radius: 8px; font-size: 12px; font-weight: bold; background: transparent; cursor: pointer; }
+        .input-premium { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 20px; width: 100%; outline: none; color: #ccff00; font-weight: bold; text-align: center; }
+        .btn-gold { background: linear-gradient(180deg, #ffd700, #ff8c00); color: black; font-weight: 900; }
+        .btn-wa { background-color: #25D366; color: black; font-weight: 900; }
     </style>
 </head>
 <body class="p-6">
 
-    <div class="w-full max-w-sm flex justify-between items-center mb-10 mx-auto">
-        <button onclick="toggleLang()" id="langSwitcher" class="lang-badge">Français</button>
-        <div class="text-[10px] text-gray-500 font-bold uppercase tracking-widest">S3 v3.0 Premium</div>
+    <div class="max-w-sm mx-auto text-center mb-8">
+        <h1 class="text-white text-2xl font-black italic">SARI3-AI <span class="text-[#ccff00]">S3</span></h1>
+        <p class="text-[#ccff00] font-bold text-xl uppercase italic">SARI3 SPEED</p>
     </div>
 
-    <div class="w-full max-w-sm mx-auto flex flex-col items-center mb-10">
-        <div class="w-full flex justify-center items-center gap-2 mb-6">
-            <h1 class="text-white text-3xl font-black italic tracking-tighter uppercase">Sari3-AI</h1>
-            <div class="p-3 bg-[#ccff00] rounded-2xl shadow-[0_0_15px_rgba(204,255,0,0.5)]">
-                <span class="text-black text-3xl font-black italic tracking-tighter">S3</span>
-            </div>
-        </div>
-        <div class="text-center">
-            <span class="text-[#ccff00] text-xl font-bold uppercase tracking-widest block mb-1">أتمتة ذكية..</span>
-            <span class="text-white text-5xl font-extrabold uppercase italic tracking-tighter">SARI3 SPEED</span>
-        </div>
-    </div>
+    <div id="app-container" class="glass-card p-8 max-w-sm mx-auto space-y-5">
+        <p class="text-center text-gray-400 text-sm">أدخل بياناتك لتفعيل المحرك</p>
+        
+        <input type="text" id="user-name" class="input-premium" placeholder="الاسم الكامل">
+        <input type="tel" id="user-phone" class="input-premium" placeholder="رقم الهاتف">
+        <input type="text" id="license-key" class="input-premium" placeholder="كود التفعيل">
 
-    <div id="app-container" class="glass-card p-8 w-full max-w-sm mx-auto space-y-6">
-        <div class="text-center text-gray-400 text-sm">
-            <p id="desc">أدخل بياناتك لتفعيل محرك الأتمتة</p>
-        </div>
-
-        <div class="space-y-4">
-            <input type="text" id="user-name" class="input-premium" placeholder="الاسم الكامل">
-            <input type="tel" id="user-phone" class="input-premium" placeholder="رقم الهاتف">
-            
-            <hr class="border-gray-800 my-4">
-            
-            <input type="text" id="license-key" class="input-premium" placeholder="كود التفعيل">
-            
-            <div class="flex flex-col gap-3 pt-2">
-                <button onclick="checkKey()" class="w-full btn-premium py-5 rounded-2xl">تفعيل النسخة PRO</button>
-                
-                <button onclick="requestKey()" class="w-full btn-whatsapp py-4 rounded-2xl flex items-center justify-center gap-2">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-                    <span id="waText">طلب المفتاح عبر واتساب</span>
-                </button>
-            </div>
-        </div>
+        <button onclick="checkKey()" class="w-full btn-gold py-5 rounded-2xl shadow-xl">تفعيل النسخة PRO</button>
+        
+        <button onclick="requestKey()" class="w-full btn-wa py-4 rounded-2xl flex items-center justify-center gap-2">
+            طلب المفتاح عبر واتساب
+        </button>
     </div>
 
     <script>
-        let currentLang = 'ar';
-        const MY_PHONE = "213791809715"; 
-
-        const translations = {
-            ar: {
-                desc: 'أدخل بياناتك لتفعيل محرك الأتمتة',
-                namePlh: 'الاسم الكامل',
-                phonePlh: 'رقم الهاتف',
-                keyPlh: 'كود التفعيل',
-                btnActivate: 'تفعيل النسخة PRO',
-                btnWA: 'طلب المفتاح عبر واتساب',
-                langBtn: 'Français',
-                success: 'المحرك نشط ⚡'
-            },
-            fr: {
-                desc: 'Entrez vos données pour activer le moteur',
-                namePlh: 'Nom complet',
-                phonePlh: 'Numéro de téléphone',
-                keyPlh: 'Code d\'activation',
-                btnActivate: 'ACTIVER VERSION PRO',
-                btnWA: 'DEMANDER LE CODE VIA WHATSAPP',
-                langBtn: 'العربية',
-                success: 'MOTEUR ACTIF ⚡'
-            }
-        };
-
-        function toggleLang() {
-            currentLang = currentLang === 'ar' ? 'fr' : 'ar';
-            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-            const t = translations[currentLang];
-            document.getElementById('desc').innerText = t.desc;
-            document.getElementById('user-name').placeholder = t.namePlh;
-            document.getElementById('user-phone').placeholder = t.phonePlh;
-            document.getElementById('license-key').placeholder = t.keyPlh;
-            document.querySelector('.btn-premium').innerText = t.btnActivate;
-            document.getElementById('waText').innerText = t.btnWA;
-            document.getElementById('langSwitcher').innerText = t.langBtn;
-        }
+        const MY_PHONE = "213791809715";
 
         function requestKey() {
             const name = document.getElementById('user-name').value;
             const phone = document.getElementById('user-phone').value;
-            if(!name || !phone) { alert("يرجى إدخال الاسم والهاتف أولاً!"); return; }
+            if(!name || !phone) { alert("أدخل اسمك وهاتفك أولاً!"); return; }
             
-            const message = `مرحباً Sari3-AI، أريد الحصول على مفتاح التفعيل لخدمة الـ 50 محاولة.%0Aالاسم: ${name}%0Aالهاتف: ${phone}`;
-            window.open(`https://wa.me/${MY_PHONE}?text=${message}`, '_blank');
+            const msg = `أريد مفتاح تفعيل S3 PRO.%0Aالاسم: ${name}%0Aالهاتف: ${phone}`;
+            window.open(`https://wa.me/${MY_PHONE}?text=${msg}`, '_blank');
         }
 
         function checkKey() {
             const key = document.getElementById('license-key').value;
+            const name = document.getElementById('user-name').value;
+            const phone = document.getElementById('user-phone').value;
+
             if(key === "S3-PRO-2026") { 
+                // حفظ البيانات للملء التلقائي
+                localStorage.setItem('s3_name', name);
+                localStorage.setItem('s3_phone', phone);
+
                 document.getElementById('app-container').innerHTML = `
-                    <div class="text-center py-10 animate-bounce">
-                        <div class="text-6xl mb-4 text-[#ccff00]">⚡</div>
-                        <h2 class="text-[#ccff00] font-black text-2xl uppercase">${translations[currentLang].success}</h2>
+                    <div class="text-center py-10 animate-pulse">
+                        <div class="text-6xl mb-4">⚡</div>
+                        <h2 class="text-[#ccff00] font-black text-2xl">المحرك نشط ⚡</h2>
                         <p class="text-gray-400 mt-4">تم تفعيل 50 محاولة حجز بنجاح</p>
                     </div>`;
             } else {
-                alert(currentLang === 'ar' ? "الكود غير صحيح! تواصل مع صاحب الخدمة." : "Code incorrect!");
+                alert("الكود غير صحيح!");
             }
         }
     </script>
