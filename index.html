@@ -3,75 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sari3-AI Speed Pro</title>
+    <title>Sari3-AI S3 Pro Multi</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #000000; color: white; font-family: 'Cairo', sans-serif; }
-        .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.08); }
-        .input-premium { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 20px; width: 100%; outline: none; color: #ccff00; font-weight: bold; text-align: center; transition: 0.3s; }
-        .btn-gold { background: linear-gradient(180deg, #ffd700, #ff8c00); color: black; font-weight: 900; cursor: pointer; }
-        .btn-wa { background-color: #25D366; color: black; font-weight: 900; cursor: pointer; }
+        body { background-color: #0b0b0b; color: white; font-family: 'Cairo', sans-serif; }
+        .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(15px); border-radius: 25px; border: 1px solid rgba(255, 255, 255, 0.1); }
+        .input-premium { background: rgba(0, 0, 0, 0.3); border: 1px solid #ccff0033; padding: 15px; border-radius: 15px; width: 100%; outline: none; color: #ccff00; text-align: center; }
+        .btn-main { background: linear-gradient(90deg, #ccff00, #9fcc00); color: black; font-weight: 900; transition: 0.3s; }
+        .service-btn { background: rgba(255, 255, 255, 0.08); border-right: 4px solid #ccff00; padding: 15px; border-radius: 12px; width: 100%; text-align: right; font-weight: bold; transition: 0.2s; display: flex; align-items: center; gap: 10px; }
+        .service-btn:active { background: #ccff00; color: black; }
     </style>
 </head>
-<body class="p-6">
+<body class="p-4">
 
-    <div class="max-w-sm mx-auto text-center mb-8">
-        <h1 class="text-white text-2xl font-black italic uppercase">SARI3-AI <span class="text-[#ccff00]">S3</span></h1>
-        <p class="text-[#ccff00] font-bold text-xl italic">SARI3 SPEED PRO</p>
-    </div>
+    <div id="main-logic">
+        <div id="login-screen" class="max-w-md mx-auto">
+            <div class="text-center mb-6">
+                <h1 class="text-3xl font-black italic">SARI3-AI <span class="text-[#ccff00]">S3</span></h1>
+                <p class="text-gray-400 text-sm">نظام الحقن التلقائي الموحد v2.0</p>
+            </div>
 
-    <div id="app-container" class="glass-card p-8 max-w-sm mx-auto space-y-5">
-        <p class="text-center text-gray-400 text-sm">أدخل بياناتك لتفعيل محرك S3 PRO</p>
-        
-        <input type="text" id="user-name" class="input-premium" placeholder="الاسم الكامل (باللاتينية)">
-        <input type="tel" id="user-phone" class="input-premium" placeholder="رقم الهاتف">
-        <input type="text" id="license-key" class="input-premium" placeholder="كود التفعيل">
+            <div class="glass-card p-6 space-y-4">
+                <input type="text" id="user-name" class="input-premium" placeholder="الاسم الكامل (باللاتينية)">
+                <input type="tel" id="user-phone" class="input-premium" placeholder="رقم الهاتف">
+                <input type="text" id="license-key" class="input-premium" placeholder="كود التفعيل">
+                <button onclick="activateSystem()" class="w-full btn-main py-4 rounded-xl shadow-lg shadow-[#ccff0022]">تفعيل المحرك الشامل</button>
+            </div>
+        </div>
 
-        <button onclick="checkKey()" class="w-full btn-gold py-5 rounded-2xl shadow-xl active:scale-95 transition">تفعيل النسخة PRO</button>
-        
-        <button onclick="requestKey()" class="w-full btn-wa py-4 rounded-2xl flex items-center justify-center gap-2 active:scale-95 transition">
-            طلب المفتاح عبر واتساب
-        </button>
+        <div id="services-screen" class="hidden max-w-md mx-auto space-y-3">
+            <div class="text-center mb-4">
+                <h2 class="text-[#ccff00] font-black text-xl">لوحة التحكم PRO ⚡</h2>
+                <p class="text-xs text-gray-500">اختر الموقع وسيتم ملء بياناتك تلقائياً</p>
+            </div>
+            
+            <button onclick="goTo('https://minha.anem.dz')" class="service-btn">💵 منحة البطالة (ANEM)</button>
+            <button onclick="goTo('https://aadl3inscription2024.dz')" class="service-btn">🏢 سكنات عدل 3 (AADL)</button>
+            <button onclick="goTo('https://visas-fr.tlscontact.com')" class="service-btn">🎫 مواعيد الفيزا (TLScontact)</button>
+            <button onclick="goTo('https://eccp.poste.dz')" class="service-btn">✉️ بريد الجزائر (الذهبية)</button>
+            <button onclick="goTo('https://bawaba.elhadj.dz')" class="service-btn">🕋 قرعة الحج (الديوان الوطني)</button>
+            <button onclick="goTo('https://tharwa.education.gov.dz')" class="service-btn">🏫 أولياء التلاميذ (Tharwa)</button>
+            <button onclick="goTo('https://progres.mesrs.dz/webetu/')" class="service-btn">🎓 منحة الجامعيين (Progress)</button>
+            <button onclick="goTo('https://elhanaa.cnas.dz')" class="service-btn">🏥 الضمان الاجتماعي (CNAS)</button>
+            <button onclick="goTo('https://wasitonline.anem.dz')" class="service-btn">💼 عروض العمل (وسيط)</button>
+            <button onclick="goTo('https://www.sntf.dz')" class="service-btn">🚆 حجز قطار (SNTF)</button>
+        </div>
     </div>
 
     <script>
-        const MY_PHONE = "213791809715";
-
-        function requestKey() {
-            const name = document.getElementById('user-name').value;
-            const phone = document.getElementById('user-phone').value;
-            if(!name || !phone) { alert("يرجى إدخال اسمك وهاتفك أولاً!"); return; }
-            const msg = `أريد مفتاح S3 PRO.%0Aالاسم: ${name}%0Aالهاتف: ${phone}`;
-            window.open(`https://wa.me/${MY_PHONE}?text=${msg}`, '_blank');
-        }
-
-        function checkKey() {
+        function activateSystem() {
             const key = document.getElementById('license-key').value;
             const name = document.getElementById('user-name').value;
             const phone = document.getElementById('user-phone').value;
 
-            if(key === "S3-PRO-2026") { 
-                // حفظ البيانات في الذاكرة
+            if(key === "S3-PRO-2026") {
                 localStorage.setItem('s3_name', name);
                 localStorage.setItem('s3_phone', phone);
 
-                // شاشة النجاح
-                document.getElementById('app-container').innerHTML = `
-                    <div class="text-center py-10 animate-pulse">
-                        <div class="text-6xl mb-4">⚡</div>
-                        <h2 class="text-[#ccff00] font-black text-2xl uppercase">تم التفعيل بنجاح ⚡</h2>
-                        <p class="text-gray-400 mt-4 italic text-sm">جاري التوجيه لموقع الحجز وحقن البيانات...</p>
-                    </div>`;
-
-                // التوجيه لموقع TLScontact بعد 3 ثوانٍ
-                setTimeout(() => {
-                    window.location.href = "https://visas-fr.tlscontact.com/visa/dz/dzORN2fr/home"; 
-                }, 3000);
-
+                document.getElementById('login-screen').classList.add('hidden');
+                document.getElementById('services-screen').classList.remove('hidden');
             } else {
                 alert("كود التفعيل غير صحيح!");
             }
+        }
+
+        function goTo(url) {
+            window.location.href = url;
         }
     </script>
 </body>
