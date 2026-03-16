@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sari3-AI | الأتمتة والسرعة الفائقة</title>
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Orbitron:wght@700&display=swap" rel="stylesheet">
-    
     <style>
         :root { --lime: #ccff00; --dark: #050505; }
         body { background-color: var(--dark); color: white; font-family: 'Cairo', sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
@@ -17,51 +15,33 @@
         .glow-btn { background: var(--lime); color: black; font-weight: 900; transition: 0.3s; box-shadow: 0 0 20px rgba(204, 255, 0, 0.2); text-align: center; }
         .glow-btn:hover { box-shadow: 0 0 40px rgba(204, 255, 0, 0.5); transform: scale(1.05); }
         .input-style { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 20px; border-radius: 20px; width: 100%; outline: none; color: white; transition: 0.3s; }
-        .input-style:focus { border-color: var(--lime); background: rgba(204, 255, 0, 0.02); }
+        .input-style:focus { border-color: var(--lime); }
     </style>
 </head>
 <body>
 
     <nav class="fixed top-0 w-full z-[100] p-4 glass flex justify-between items-center px-6 md:px-12">
         <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-[#ccff00] rounded-xl flex items-center justify-center shadow-lg">
-                <span class="tech-font text-black font-bold">S3</span>
-            </div>
+            <div class="w-10 h-10 bg-[#ccff00] rounded-xl flex items-center justify-center font-bold text-black tech-font">S3</div>
             <span class="tech-font text-2xl tracking-tighter uppercase">SARI3-<span class="text-[#ccff00]">AI</span></span>
         </div>
-        <div class="flex gap-4">
-             <button onclick="toggleAdmin()" class="text-gray-500 hover:text-white transition p-2"><i data-lucide="layout-dashboard" class="w-5 h-5"></i></button>
-             <a href="#booking" class="glow-btn px-6 py-2 rounded-full text-xs md:text-sm">ابدأ الآن</a>
-        </div>
+        <div id="counter-badge" class="bg-white/10 px-4 py-1 rounded-full text-[10px] text-[#ccff00] tech-font">FREE: 5/5</div>
     </nav>
 
-    <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 relative pt-20">
-        <div class="absolute w-[500px] h-[500px] bg-[#ccff00]/5 blur-[120px] rounded-full -top-20 -right-20"></div>
-        
+    <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-20">
         <div class="z-10 space-y-6">
-            <h1 class="text-6xl md:text-8xl font-black leading-tight tracking-tighter">
-                أتمتة ذكية.. <br> <span class="text-[#ccff00] italic">سرعة قياسية</span>
-            </h1>
-            <p class="text-gray-400 text-lg md:text-xl max-w-xl mx-auto">
-                Sari3-AI: الحل الجزائري الأول لإدارة المواعيد والتسجيل الفوري المدعوم بالذكاء الاصطناعي.
-            </p>
-
-            <div id="booking" class="max-w-md mx-auto mt-12 glass p-10 rounded-[50px] border-white/5 shadow-2xl">
-                <div class="flex items-center justify-center gap-2 mb-8 text-[10px] text-[#ccff00] tech-font tracking-widest uppercase">
-                    <span class="w-2 h-2 bg-[#ccff00] rounded-full animate-ping"></span>
-                    AI Agent Connected
-                </div>
-                
+            <h1 class="text-6xl md:text-8xl font-black leading-tight tracking-tighter">أتمتة ذكية.. <br> <span class="text-[#ccff00] italic">سرعة قياسية</span></h1>
+            
+            <div id="booking" class="max-w-md mx-auto glass p-10 rounded-[50px] border-white/5 shadow-2xl">
                 <div class="space-y-4 text-right">
                     <input type="text" id="cust-name" class="input-style" placeholder="الاسم الكامل">
-                    <input type="tel" id="cust-phone" class="input-style" placeholder="رقم الهاتف (واتساب)">
+                    <input type="tel" id="cust-phone" class="input-style" placeholder="رقم الهاتف">
                     <select id="cust-service" class="input-style text-gray-400">
-                        <option class="bg-black">اشتراك مؤسسة (AI + Turbo)</option>
-                        <option class="bg-black">خدمة التسجيل الفوري (On-Demand)</option>
+                        <option>حجز موعد (مجاني - تجريبي)</option>
+                        <option>تسجيل منصات (بريميوم 💎)</option>
                     </select>
-                    <button onclick="runSari3AI()" id="main-btn" class="w-full glow-btn py-6 rounded-3xl text-xl mt-4">
-                        الحجز عبر واتساب
-                    </button>
+                    <button onclick="runSari3AI()" id="main-btn" class="w-full glow-btn py-6 rounded-3xl text-xl mt-4">الحجز عبر واتساب</button>
+                    <p id="limit-msg" class="text-center text-[10px] text-gray-500 mt-2 italic"></p>
                 </div>
             </div>
         </div>
@@ -69,36 +49,39 @@
 
     <script>
         lucide.createIcons();
+        let attempts = localStorage.getItem('sari3_count') || 0;
+        updateUI();
 
-        // تفعيل الربط مع AgentRouter ومفتاحك الخاص
+        function updateUI() {
+            const rem = 5 - attempts;
+            document.getElementById('counter-badge').innerText = `FREE: ${rem > 0 ? rem : 0}/5`;
+            if(attempts >= 5) {
+                const btn = document.getElementById('main-btn');
+                btn.innerText = "ترقية للبريميوم 💎";
+                btn.style.background = "linear-gradient(90deg, #ffd700, #ffa500)";
+            }
+        }
+
         function runSari3AI() {
-            const name = document.getElementById('cust-name').value;
-            const phone = document.getElementById('cust-phone').value;
-            const service = document.getElementById('cust-service').value;
-            const btn = document.getElementById('main-btn');
-
-            if (!name || !phone) {
-                alert("يرجى ملء البيانات أولاً");
+            if(attempts >= 5) {
+                window.location.href = "https://wa.me/213791809715?text=انتهت_محاولاتي_أريد_باقة_البريميوم";
                 return;
             }
 
-            // تجميل الزر أثناء "التفكير"
-            btn.innerText = "جاري الاتصال بـ S3 Agent... 🧠";
-            btn.disabled = true;
+            const name = document.getElementById('cust-name').value;
+            const phone = document.getElementById('cust-phone').value;
+            if(!name || !phone) { alert("أدخل بياناتك"); return; }
 
-            // مفتاحك الذي حصلت عليه
-            const myToken = "sk-5ucuhqsaCjGewHiCn8P2E3D2Ae4f4cBcAdBfE6A17136F395";
+            document.getElementById('main-btn').innerText = "جاري الاتصال بالعقل... 🧠";
+            
+            attempts++;
+            localStorage.setItem('sari3_count', attempts);
 
-            // تحويل تلقائي للواتساب بعد محاكاة ذكاء الـ AI
             setTimeout(() => {
-                const msg = `طلب حجز جديد من Sari3-AI:%0A👤 الاسم: ${name}%0A📞 الهاتف: ${phone}%0A🛠 الخدمة: ${service}%0A🤖 الحالة: تم التحقق عبر AI Token`;
+                const msg = `طلب حجز (محاولة ${attempts}/5):%0A👤 الاسم: ${name}%0A📞 الهاتف: ${phone}`;
                 window.location.href = `https://wa.me/213791809715?text=${msg}`;
+                updateUI();
             }, 1500);
-        }
-
-        function toggleAdmin() {
-            const p = prompt("كلمة مرور الإدارة:");
-            if(p === "1234") alert("أهلاً بك يا مدير منصة سريع!");
         }
     </script>
 </body>
