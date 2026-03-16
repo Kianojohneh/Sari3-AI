@@ -57,7 +57,7 @@
             const name = document.getElementById('user-name').value;
             const phone = document.getElementById('user-phone').value;
 
-            if(key === "S3-PRO-2026") {
+            if(key.trim().toUpperCase() === "S3-PRO-2026") {
                 localStorage.setItem('s3_name', name);
                 localStorage.setItem('s3_phone', phone);
 
