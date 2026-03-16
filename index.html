@@ -2,99 +2,109 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sari3 Speed - Setup</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sari3-AI | محرك الأتمتة الذكي</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Orbitron:wght@700&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #000000; color: white; font-family: 'Cairo', sans-serif; overflow-x: hidden; }
-        .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.08); }
-        .input-premium { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); padding: 22px; border-radius: 20px; width: 100%; outline: none; color: #ccff00; font-size: 16px; font-weight: bold; }
-        .input-premium::placeholder { color: #555; }
-        .btn-premium { background: linear-gradient(180deg, #ffd700, #ff8c00); color: black; font-weight: 900; font-size: 18px; box-shadow: 0 10px 30px rgba(255, 165, 0, 0.3); transition: transform 0.2s ease; }
-        .btn-premium:active { transform: scale(0.97); }
-        .lang-badge { border: 1px solid #ccff00; color: #ccff00; padding: 4px 12px; border-radius: 8px; font-size: 12px; font-weight: bold; }
+        :root { --lime: #ccff00; --dark: #050505; }
+        body { background-color: var(--dark); color: white; font-family: 'Cairo', sans-serif; overflow-x: hidden; }
+        .tech-font { font-family: 'Orbitron', sans-serif; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .glow-btn { background: var(--lime); color: black; font-weight: 900; transition: 0.3s; box-shadow: 0 0 25px rgba(204, 255, 0, 0.3); border-radius: 40px; }
+        .input-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 20px; border-radius: 25px; width: 100%; outline: none; color: white; text-align: right; }
     </style>
 </head>
-<body class="p-6">
+<body>
 
-    <div class="w-full max-w-sm flex justify-between items-center mb-10 mx-auto">
-        <button onclick="toggleLang()" id="langSwitcher" class="lang-badge">Français</button>
-        <div class="text-[10px] text-gray-500 font-bold uppercase tracking-widest">S3 v3.0 Premium</div>
-    </div>
+    <nav class="fixed top-0 w-full z-[100] p-5 glass flex justify-between items-center px-8">
+        <div class="flex items-center gap-4">
+            <div class="w-10 h-10 bg-[#ccff00] rounded-xl flex items-center justify-center font-bold text-black tech-font text-xl shadow-[0_0_15px_#ccff00]">S3</div>
+            <span class="tech-font text-xl tracking-tighter uppercase font-black">SARI3-AI</span>
+        </div>
+        <div id="counter" class="bg-white/10 px-4 py-2 rounded-full text-[10px] text-[#ccff00] tech-font border border-[#ccff00]/20 font-bold">
+            المحاولات المجانية: 50/50
+        </div>
+    </nav>
 
-    <div class="w-full max-w-sm mx-auto flex flex-col items-center mb-10">
-        <div class="w-full flex justify-center items-center gap-2 mb-6">
-            <h1 class="text-white text-3xl font-black italic tracking-tighter uppercase">Sari3-AI</h1>
-            <div class="p-3 bg-[#ccff00] rounded-2xl shadow-[0_0_15px_rgba(204,255,0,0.5)]">
-                <span class="text-black text-3xl font-black italic tracking-tighter">S3</span>
+    <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24">
+        <div id="main-content" class="max-w-md w-full space-y-8">
+            <h1 class="text-5xl font-black tracking-tighter leading-tight">أتمتة ذكية.. <br><span class="text-[#ccff00] italic uppercase">SARI3 SPEED</span></h1>
+            
+            <div id="form-container" class="glass p-8 rounded-[40px] space-y-4 shadow-2xl">
+                <p class="text-sm text-gray-400 mb-4">أدخل بياناتك لبرمجة محرك الأتمتة الخاص بك</p>
+                <input type="text" id="user-name" class="input-box" placeholder="الاسم الكامل">
+                <input type="tel" id="user-phone" class="input-box" placeholder="رقم الهاتف">
+                <button onclick="activateEngine()" id="action-btn" class="w-full glow-btn py-6 text-xl mt-4">تفعيل محرك الأتمتة ⚡</button>
             </div>
+            
+            <p class="text-[10px] text-gray-500 italic uppercase tracking-[0.3em]">Next-Gen Automation Engine</p>
         </div>
-        <div class="text-center">
-            <span class="text-[#ccff00] text-xl font-bold uppercase tracking-widest block mb-1">أتمتة ذكية..</span>
-            <span class="text-white text-5xl font-extrabold uppercase italic tracking-tighter">SARI3 SPEED</span>
-        </div>
-    </div>
-
-    <div id="app-container" class="glass-card p-10 w-full max-w-sm mx-auto space-y-6">
-        <div class="text-center text-gray-400 text-sm mb-6">
-            <p id="desc">أدخل بياناتك لبرمجة محرك الأتمتة الخاص بك</p>
-        </div>
-
-        <div class="space-y-4">
-            <input type="text" id="user-name" class="input-premium" placeholder="الاسم الكامل">
-            <input type="tel" id="user-phone" class="input-premium" placeholder="رقم الهاتف">
-            <button id="mainBtn" onclick="saveData()" class="w-full btn-premium py-6 rounded-3xl text-xl mt-4 flex items-center justify-center gap-2">
-                <span class="text-lg">💎</span> <span id="btnText">ترقية للبريميوم</span>
-            </button>
-        </div>
-    </div>
+    </section>
 
     <script>
-        let currentLang = 'ar';
-        const translations = {
-            ar: {
-                desc: 'أدخل بياناتك لبرمجة محرك الأتمتة الخاص بك',
-                namePlh: 'الاسم الكامل',
-                phonePlh: 'رقم الهاتف',
-                btn: 'ترقية للبريميوم',
-                langBtn: 'Français',
-                success: 'المحرك نشط ⚡',
-                successDesc: 'تم حفظ البيانات بنجاح في نظام S3.'
-            },
-            fr: {
-                desc: 'Entrez vos données pour programmer votre moteur',
-                namePlh: 'Nom complet',
-                phonePlh: 'Numéro de téléphone',
-                btn: 'PASSER AU PREMIUM',
-                langBtn: 'العربية',
-                success: 'MOTEUR ACTIF ⚡',
-                successDesc: 'Les données sont sauvegardées avec succès.'
-            }
-        };
+        let attempts = localStorage.getItem('sari3_v3_count') || 0;
+        updateCounter();
 
-        function toggleLang() {
-            currentLang = currentLang === 'ar' ? 'fr' : 'ar';
-            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-            const t = translations[currentLang];
-            document.getElementById('desc').innerText = t.desc;
-            document.getElementById('user-name').placeholder = t.namePlh;
-            document.getElementById('user-phone').placeholder = t.phonePlh;
-            document.getElementById('btnText').innerText = t.btn;
-            document.getElementById('langSwitcher').innerText = t.langBtn;
+        function updateCounter() {
+            const limit = 50; // تم التعديل لـ 50
+            const rem = limit - attempts;
+            const counterEl = document.getElementById('counter');
+            if(counterEl) counterEl.innerText = `المحاولات المجانية: ${rem > 0 ? rem : 0}/${limit}`;
+            if (attempts >= limit) {
+                const btn = document.getElementById('action-btn');
+                if(btn) {
+                    btn.innerText = "ترقية للبريميوم 💎";
+                    btn.style.background = "linear-gradient(90deg, #ffd700, #ffa500)";
+                }
+            }
         }
 
-        function saveData() {
-            const t = translations[currentLang];
-            document.getElementById('app-container').innerHTML = `
-                <div class="text-center space-y-6 py-8 animate-pulse">
-                    <div class="text-5xl text-[#ccff00]">⚡</div>
-                    <h2 class="text-[#ccff00] font-black text-xl uppercase">${t.success}</h2>
-                    <p class="text-gray-400 text-xs px-2 leading-relaxed">${t.successDesc}</p>
-                    <button onclick="window.location.reload()" class="text-gray-600 text-[10px] underline uppercase tracking-widest">Reset</button>
+        function activateEngine() {
+            const name = document.getElementById('user-name').value;
+            const phone = document.getElementById('user-phone').value;
+
+            if (!name || !phone) { alert("يرجى إدخال البيانات أولاً ⚠️"); return; }
+
+            if (attempts >= 50) { // تم التعديل لـ 50
+                window.location.href = "https://wa.me/213791809715?text=انتهت_محاولاتي_أريد_باقة_البريميوم";
+                return;
+            }
+
+            attempts++;
+            localStorage.setItem('sari3_v3_count', attempts);
+            updateCounter();
+
+            const magicCode = `javascript:(function(){const n='${name}';const p='${phone}';document.querySelectorAll('input').forEach(i=>{const a=(i.name+i.placeholder+i.id).toLowerCase();if(a.includes('name')||a.includes('اسم'))i.value=n;if(a.includes('phone')||a.includes('هاتف')||a.includes('tel'))i.value=p;i.style.border='3px solid #ccff00';});alert('Sari3-AI: تم ملء البيانات! ⚡');})();`;
+
+            document.getElementById('form-container').innerHTML = `
+                <div class="space-y-6">
+                    <h2 class="text-xl font-bold text-[#ccff00]">تم برمجة المحرك! ✅</h2>
+                    <div class="bg-white/5 p-5 rounded-3xl border border-dashed border-[#ccff00]/50">
+                        <button onclick="copyMagicCode('${magicCode}')" class="w-full py-5 bg-white text-black font-black rounded-2xl mb-4 shadow-[0_10px_20px_rgba(255,255,255,0.1)] active:scale-95 transition-all">
+                            نسخ مفتاح SARI3-AI 📋
+                        </button>
+                        <div class="text-right text-[11px] space-y-2 text-gray-300 leading-relaxed">
+                            <p class="font-bold text-[#ccff00]">💡 كيف تستعمله؟</p>
+                            <p>1. اضغط "نسخ المفتاح" أعلاه.</p>
+                            <p>2. اذهب لموقع الحجز.</p>
+                            <p>3. في شريط الرابط، اكتب <span class="text-white font-mono font-bold">javascript:</span> ثم الصق الكود واضغط Go.</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/213791809715?text=أريد_النسخة_الاحترافية" class="block text-[#ccff00] font-bold text-xs underline uppercase tracking-tighter">Upgrade to Premium 💎</a>
                 </div>
             `;
         }
+
+        function copyMagicCode(code) {
+            const el = document.createElement('textarea');
+            el.value = code;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            alert("✅ تم نسخ المفتاح!");
+        }
     </script>
 </body>
-</html>
+</htbackgroundground
