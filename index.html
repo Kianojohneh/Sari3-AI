@@ -23,7 +23,7 @@
             <span class="tech-font text-xl tracking-tighter uppercase font-black">SARI3-AI</span>
         </div>
         <div id="counter" class="bg-white/10 px-4 py-2 rounded-full text-[10px] text-[#ccff00] tech-font border border-[#ccff00]/20 font-bold">
-            المحاولات المجانية:50/50
+            المحاولات المجانية: 50/50
         </div>
     </nav>
 
@@ -47,10 +47,11 @@
         updateCounter();
 
         function updateCounter() {
-            const rem = 5 - attempts;
+            const limit = 50; // تم التعديل لـ 50
+            const rem = limit - attempts;
             const counterEl = document.getElementById('counter');
-            if(counterEl) counterEl.innerText = `المحاولات المجانية: ${rem > 0 ? rem : 0}/5`;
-            if (attempts >= 5) {
+            if(counterEl) counterEl.innerText = `المحاولات المجانية: ${rem > 0 ? rem : 0}/${limit}`;
+            if (attempts >= limit) {
                 const btn = document.getElementById('action-btn');
                 if(btn) {
                     btn.innerText = "ترقية للبريميوم 💎";
@@ -65,7 +66,7 @@
 
             if (!name || !phone) { alert("يرجى إدخال البيانات أولاً ⚠️"); return; }
 
-            if (attempts >= 5) {
+            if (attempts >= 50) { // تم التعديل لـ 50
                 window.location.href = "https://wa.me/213791809715?text=انتهت_محاولاتي_أريد_باقة_البريميوم";
                 return;
             }
@@ -84,14 +85,13 @@
                             نسخ مفتاح SARI3-AI 📋
                         </button>
                         <div class="text-right text-[11px] space-y-2 text-gray-300 leading-relaxed">
-                            <p class="font-bold text-[#ccff00]">💡 كيف تستعمله على الهاتف؟</p>
+                            <p class="font-bold text-[#ccff00]">💡 كيف تستعمله؟</p>
                             <p>1. اضغط "نسخ المفتاح" أعلاه.</p>
-                            <p>2. احفظ هذه الصفحة في "المفضلة" (Bookmarks).</p>
-                            <p>3. عدّل الصفحة المحفوظة وضع الكود مكان الرابط (URL).</p>
-                            <p>4. اذهب لموقع التسجيل واضغط على تلك الصفحة من المفضلة.</p>
+                            <p>2. اذهب لموقع الحجز.</p>
+                            <p>3. في شريط الرابط، اكتب <span class="text-white font-mono font-bold">javascript:</span> ثم الصق الكود واضغط Go.</p>
                         </div>
                     </div>
-                    <a href="https://wa.me/213791809715?text=أريد_النسخة_الاحترافية" class="block text-[#ccff00] font-bold text-xs underline uppercase tracking-tighter">Upgrade to Premium (Full Auto) 💎</a>
+                    <a href="https://wa.me/213791809715?text=أريد_النسخة_الاحترافية" class="block text-[#ccff00] font-bold text-xs underline uppercase tracking-tighter">Upgrade to Premium 💎</a>
                 </div>
             `;
         }
@@ -103,7 +103,7 @@
             el.select();
             document.execCommand('copy');
             document.body.removeChild(el);
-            alert("✅ تم نسخ المفتاح! اتبّع التعليمات بالأسفل لتفعيله.");
+            alert("✅ تم نسخ المفتاح!");
         }
     </script>
 </body>
