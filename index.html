@@ -3,34 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sari3-AI Speed</title>
+    <title>Sari3-AI Speed Pro</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body { background-color: #000000; color: white; font-family: 'Cairo', sans-serif; }
         .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.08); }
-        .input-premium { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 20px; width: 100%; outline: none; color: #ccff00; font-weight: bold; text-align: center; }
-        .btn-gold { background: linear-gradient(180deg, #ffd700, #ff8c00); color: black; font-weight: 900; }
-        .btn-wa { background-color: #25D366; color: black; font-weight: 900; }
+        .input-premium { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 20px; width: 100%; outline: none; color: #ccff00; font-weight: bold; text-align: center; transition: 0.3s; }
+        .btn-gold { background: linear-gradient(180deg, #ffd700, #ff8c00); color: black; font-weight: 900; cursor: pointer; }
+        .btn-wa { background-color: #25D366; color: black; font-weight: 900; cursor: pointer; }
     </style>
 </head>
 <body class="p-6">
 
     <div class="max-w-sm mx-auto text-center mb-8">
-        <h1 class="text-white text-2xl font-black italic">SARI3-AI <span class="text-[#ccff00]">S3</span></h1>
-        <p class="text-[#ccff00] font-bold text-xl uppercase italic">SARI3 SPEED</p>
+        <h1 class="text-white text-2xl font-black italic uppercase">SARI3-AI <span class="text-[#ccff00]">S3</span></h1>
+        <p class="text-[#ccff00] font-bold text-xl italic">SARI3 SPEED PRO</p>
     </div>
 
     <div id="app-container" class="glass-card p-8 max-w-sm mx-auto space-y-5">
-        <p class="text-center text-gray-400 text-sm">أدخل بياناتك لتفعيل المحرك</p>
+        <p class="text-center text-gray-400 text-sm">أدخل بياناتك لتفعيل محرك S3 PRO</p>
         
-        <input type="text" id="user-name" class="input-premium" placeholder="الاسم الكامل">
+        <input type="text" id="user-name" class="input-premium" placeholder="الاسم الكامل (باللاتينية)">
         <input type="tel" id="user-phone" class="input-premium" placeholder="رقم الهاتف">
         <input type="text" id="license-key" class="input-premium" placeholder="كود التفعيل">
 
-        <button onclick="checkKey()" class="w-full btn-gold py-5 rounded-2xl shadow-xl">تفعيل النسخة PRO</button>
+        <button onclick="checkKey()" class="w-full btn-gold py-5 rounded-2xl shadow-xl active:scale-95 transition">تفعيل النسخة PRO</button>
         
-        <button onclick="requestKey()" class="w-full btn-wa py-4 rounded-2xl flex items-center justify-center gap-2">
+        <button onclick="requestKey()" class="w-full btn-wa py-4 rounded-2xl flex items-center justify-center gap-2 active:scale-95 transition">
             طلب المفتاح عبر واتساب
         </button>
     </div>
@@ -41,9 +41,8 @@
         function requestKey() {
             const name = document.getElementById('user-name').value;
             const phone = document.getElementById('user-phone').value;
-            if(!name || !phone) { alert("أدخل اسمك وهاتفك أولاً!"); return; }
-            
-            const msg = `أريد مفتاح تفعيل S3 PRO.%0Aالاسم: ${name}%0Aالهاتف: ${phone}`;
+            if(!name || !phone) { alert("يرجى إدخال اسمك وهاتفك أولاً!"); return; }
+            const msg = `أريد مفتاح S3 PRO.%0Aالاسم: ${name}%0Aالهاتف: ${phone}`;
             window.open(`https://wa.me/${MY_PHONE}?text=${msg}`, '_blank');
         }
 
@@ -53,18 +52,25 @@
             const phone = document.getElementById('user-phone').value;
 
             if(key === "S3-PRO-2026") { 
-                // حفظ البيانات للملء التلقائي
+                // حفظ البيانات في الذاكرة
                 localStorage.setItem('s3_name', name);
                 localStorage.setItem('s3_phone', phone);
 
+                // شاشة النجاح
                 document.getElementById('app-container').innerHTML = `
                     <div class="text-center py-10 animate-pulse">
                         <div class="text-6xl mb-4">⚡</div>
-                        <h2 class="text-[#ccff00] font-black text-2xl">المحرك نشط ⚡</h2>
-                        <p class="text-gray-400 mt-4">تم تفعيل 50 محاولة حجز بنجاح</p>
+                        <h2 class="text-[#ccff00] font-black text-2xl uppercase">تم التفعيل بنجاح ⚡</h2>
+                        <p class="text-gray-400 mt-4 italic text-sm">جاري التوجيه لموقع الحجز وحقن البيانات...</p>
                     </div>`;
+
+                // التوجيه لموقع TLScontact بعد 3 ثوانٍ
+                setTimeout(() => {
+                    window.location.href = "https://visas-fr.tlscontact.com/visa/dz/dzORN2fr/home"; 
+                }, 3000);
+
             } else {
-                alert("الكود غير صحيح!");
+                alert("كود التفعيل غير صحيح!");
             }
         }
     </script>
