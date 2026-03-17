@@ -5,14 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SARI3-AI S3 PRO</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { background: #080808; color: white; font-family: 'Cairo', sans-serif; }
+        body { background: #080808; color: white; font-family: sans-serif; }
         .input-box { background: #151515; border: 1px solid #222; padding: 15px; border-radius: 12px; width: 100%; color: #ccff00; margin-bottom: 12px; outline: none; }
         .btn-gold { background: linear-gradient(90deg, #ccff00, #9fcc00); color: black; font-weight: 900; padding: 18px; border-radius: 15px; width: 100%; cursor: pointer; }
-        .service-btn { background: #1a1a1a; border: 1px solid #333; padding: 15px; border-radius: 12px; width: 100%; text-align: right; color: white; margin-bottom: 10px; transition: 0.3s; }
-        .service-btn:active { background: #ccff00; color: black; }
-        .test-btn { background: #3b82f6; color: white; padding: 10px; border-radius: 10px; width: 100%; font-weight: bold; margin-bottom: 20px; text-align: center; }
     </style>
 </head>
 <body class="p-6">
@@ -20,32 +16,33 @@
         <h1 class="text-2xl font-black text-center mb-6">تفعيل المحرك <span class="text-[#ccff00]">S3</span></h1>
         <input type="text" id="u-name" class="input-box" placeholder="الاسم الكامل">
         <input type="tel" id="u-phone" class="input-box" placeholder="رقم الهاتف">
-        <input type="text" id="u-nin" class="input-box" placeholder="رقم التعريف (NIN)">
         <input type="text" id="license-key" class="input-box border-[#ccff0066]" placeholder="كود التفعيل">
         <button onclick="activate()" class="btn-gold">تفعيل والدخول</button>
     </div>
 
-    <div id="services-screen" class="hidden max-w-md mx-auto">
-        <h2 class="text-[#ccff00] font-black text-center mb-6">لوحة الخدمات PRO</h2>
+    <div id="test-screen" class="hidden max-w-md mx-auto">
+        <h2 class="text-[#ccff00] font-black text-center mb-4">🧪 منطقة اختبار الحقن</h2>
+        <p class="text-xs text-center text-gray-400 mb-6">راقب الخانات بالأسفل، سيتم ملؤها تلقائياً</p>
         
-        <button onclick="location.href='https://sari3-ai.vercel.app/test.html'" class="test-btn">🧪 اضغط هنا لتجربة الملء التلقائي (اختبار)</button>
+        <div class="bg-white p-4 rounded-xl space-y-4">
+            <input type="text" name="full_name" placeholder="الاسم الكامل" class="w-full p-3 border border-gray-300 text-black">
+            <input type="tel" name="phone_number" placeholder="رقم الهاتف" class="w-full p-3 border border-gray-300 text-black">
+        </div>
         
-        <hr class="border-gray-800 my-4">
-        
-        <button onclick="location.href='https://minha.anem.dz'" class="service-btn">💵 منحة البطالة</button>
-        <button onclick="location.href='https://aadl3inscription2024.dz'" class="service-btn">🏢 سكنات عدل 3</button>
-        <button onclick="location.href='https://visas-fr.tlscontact.com'" class="service-btn">🎫 مواعيد الفيزا</button>
+        <p class="text-center mt-6 text-sm text-gray-500">إذا امتلأت الخانات، فالتطبيق يعمل 100%!</p>
+        <button onclick="window.location.reload()" class="w-full mt-4 text-blue-400 text-xs">إعادة التجربة</button>
     </div>
 
     <script>
         function activate() {
             const key = document.getElementById('license-key').value.trim();
             if(key === "S3-PRO-2026") {
+                // حفظ البيانات في الذاكرة المحلية ليراها المحرك
                 localStorage.setItem('s3_name', document.getElementById('u-name').value);
                 localStorage.setItem('s3_phone', document.getElementById('u-phone').value);
-                localStorage.setItem('s3_nin', document.getElementById('u-nin').value);
+                
                 document.getElementById('setup-screen').classList.add('hidden');
-                document.getElementById('services-screen').classList.remove('hidden');
+                document.getElementById('test-screen').classList.remove('hidden');
             } else { alert("الكود خاطئ!"); }
         }
     </script>
