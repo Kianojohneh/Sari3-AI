@@ -8,46 +8,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body { background: #080808; color: white; font-family: 'Cairo', sans-serif; }
-        .input-box { background: #151515; border: 1px solid #222; padding: 15px; border-radius: 12px; width: 100%; color: #ccff00; margin-bottom: 12px; outline: none; transition: 0.3s; }
-        .input-box:focus { border-color: #ccff00; box-shadow: 0 0 10px rgba(204, 255, 0, 0.1); }
+        .input-box { background: #151515; border: 1px solid #222; padding: 15px; border-radius: 12px; width: 100%; color: #ccff00; margin-bottom: 12px; outline: none; }
         .btn-gold { background: linear-gradient(90deg, #ccff00, #9fcc00); color: black; font-weight: 900; padding: 18px; border-radius: 15px; width: 100%; cursor: pointer; }
-        .btn-wa { background: #25d366; color: white; padding: 12px; border-radius: 12px; width: 100%; display: block; text-align: center; text-decoration: none; margin-top: 15px; font-weight: bold; }
-        .safety-tag { background: rgba(0, 150, 255, 0.1); border: 1px solid rgba(0, 150, 255, 0.2); padding: 10px; border-radius: 10px; font-size: 11px; color: #87CEEB; }
+        .service-btn { background: #1a1a1a; border: 1px solid #333; padding: 15px; border-radius: 12px; width: 100%; text-align: right; color: white; margin-bottom: 10px; transition: 0.3s; }
+        .service-btn:active { background: #ccff00; color: black; }
+        .test-btn { background: #3b82f6; color: white; padding: 10px; border-radius: 10px; width: 100%; font-weight: bold; margin-bottom: 20px; text-align: center; }
     </style>
 </head>
 <body class="p-6">
     <div id="setup-screen" class="max-w-md mx-auto">
-        <div class="text-center mb-6">
-            <h1 class="text-3xl font-black italic">SARI3-AI <span class="text-[#ccff00]">S3</span></h1>
-            <p class="text-gray-500 text-sm">نظام السرعة القصوى للحقن التلقائي</p>
-        </div>
-
-        <div class="safety-tag mb-6">
-            🛡️ نظام التشفير المحلي نشط: بياناتك تُحفظ في ذاكرة هاتفك فقط ولا تخرج أبداً. نحن لا نملك قاعدة بيانات خارجية.
-        </div>
-
-        <div class="space-y-2">
-            <label class="text-xs text-gray-400 mr-2">بيانات أساسية (تُملأ تلقائياً)</label>
-            <input type="text" id="u-name" class="input-box" placeholder="الاسم واللقب (باللاتينية)">
-            <input type="tel" id="u-phone" class="input-box" placeholder="رقم الهاتف">
-            
-            <label class="text-xs text-gray-400 mr-2">بيانات إضافية (اختياري - لزيادة السرعة)</label>
-            <input type="password" id="u-nin" class="input-box" placeholder="رقم التعريف الوطني (NIN)">
-        </div>
-
-        <input type="text" id="license-key" class="input-box border-[#ccff0044] mt-4" placeholder="أدخل كود التفعيل">
-        
-        <button onclick="activate()" class="btn-gold shadow-lg shadow-[#ccff0022]">تفعيل النظام والدخول ⚡</button>
-        
-        <a href="https://wa.me/213791809715?text=أريد شراء كود تفعيل SARI3-AI" class="btn-wa">طلب كود التفعيل عبر واتساب</a>
+        <h1 class="text-2xl font-black text-center mb-6">تفعيل المحرك <span class="text-[#ccff00]">S3</span></h1>
+        <input type="text" id="u-name" class="input-box" placeholder="الاسم الكامل">
+        <input type="tel" id="u-phone" class="input-box" placeholder="رقم الهاتف">
+        <input type="text" id="u-nin" class="input-box" placeholder="رقم التعريف (NIN)">
+        <input type="text" id="license-key" class="input-box border-[#ccff0066]" placeholder="كود التفعيل">
+        <button onclick="activate()" class="btn-gold">تفعيل والدخول</button>
     </div>
 
-    <div id="services-screen" class="hidden max-w-md mx-auto space-y-3">
-        <h2 class="text-[#ccff00] font-black text-center mb-4">لوحة الخدمات PRO</h2>
-        <button onclick="location.href='https://minha.anem.dz'" class="input-box text-right">💵 منحة البطالة</button>
-        <button onclick="location.href='https://aadl3inscription2024.dz'" class="input-box text-right">🏢 سكنات عدل 3</button>
-        <button onclick="location.href='https://visas-fr.tlscontact.com'" class="input-box text-right">🎫 مواعيد الفيزا</button>
-        <button onclick="location.href='https://eccp.poste.dz'" class="input-box text-right">✉️ بريد الجزائر</button>
+    <div id="services-screen" class="hidden max-w-md mx-auto">
+        <h2 class="text-[#ccff00] font-black text-center mb-6">لوحة الخدمات PRO</h2>
+        
+        <button onclick="location.href='https://form.jotform.com/240723434651048'" class="test-btn">🧪 اضغط هنا لتجربة الملء التلقائي (اختبار)</button>
+        
+        <hr class="border-gray-800 my-4">
+        
+        <button onclick="location.href='https://minha.anem.dz'" class="service-btn">💵 منحة البطالة</button>
+        <button onclick="location.href='https://aadl3inscription2024.dz'" class="service-btn">🏢 سكنات عدل 3</button>
+        <button onclick="location.href='https://visas-fr.tlscontact.com'" class="service-btn">🎫 مواعيد الفيزا</button>
     </div>
 
     <script>
@@ -57,10 +44,9 @@
                 localStorage.setItem('s3_name', document.getElementById('u-name').value);
                 localStorage.setItem('s3_phone', document.getElementById('u-phone').value);
                 localStorage.setItem('s3_nin', document.getElementById('u-nin').value);
-                
                 document.getElementById('setup-screen').classList.add('hidden');
                 document.getElementById('services-screen').classList.remove('hidden');
-            } else { alert("كود التفعيل خاطئ!"); }
+            } else { alert("الكود خاطئ!"); }
         }
     </script>
 </body>
