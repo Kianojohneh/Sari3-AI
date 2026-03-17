@@ -1,1 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S3 PRO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background: #080808; color: white; font-family: sans-serif; }
+        .input-box { background: #151515; border: 1px solid #333; padding: 15px; border-radius: 12px; width: 100%; color: #ccff00; margin-bottom: 12px; }
+        .btn-gold { background: #ccff00; color: black; font-weight: bold; padding: 18px; border-radius: 15px; width: 100%; }
+    </style>
+</head>
+<body class="p-6">
+    <div id="setup">
+        <h2 class="text-center text-[#ccff00] mb-6">تفعيل المحرك S3</h2>
+        <input type="text" id="u-name" class="input-box" placeholder="الاسم الكامل">
+        <input type="tel" id="u-phone" class="input-box" placeholder="رقم الهاتف">
+        <input type="text" id="u-key" class="input-box" placeholder="كود التفعيل">
+        <button onclick="start()" class="btn-gold">دخول</button>
+    </div>
 
+    <div id="menu" class="hidden space-y-4">
+        <h3 class="text-center">اختر الموقع</h3>
+        <button onclick="go('https://minha.anem.dz')" class="input-box">💵 منحة البطالة</button>
+        <button onclick="go('https://sari3-ai.vercel.app/test.html')" class="input-box">🧪 تجربة الحقن</button>
+    </div>
+
+    <script>
+        function start() {
+            if(document.getElementById('u-key').value === "S3-PRO-2026") {
+                localStorage.setItem('n', document.getElementById('u-name').value);
+                localStorage.setItem('p', document.getElementById('u-phone').value);
+                document.getElementById('setup').style.display = 'none';
+                document.getElementById('menu').style.display = 'block';
+            }
+        }
+        function go(url) { window.location.href = url; }
+    </script>
+</body>
+</html>
